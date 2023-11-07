@@ -1,4 +1,4 @@
-package com.svalero.pisosalquiler.contract;
+package com.svalero.pisosalquiler.api;
 
 public class Constants {
 

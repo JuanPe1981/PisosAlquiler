@@ -1,8 +1,8 @@
-package com.svalero.pisosalquiler.contract;
+package com.svalero.pisosalquiler.api;
 
 
 
-import static com.svalero.pisosalquiler.contract.Constants.BASE_URL;
+import static com.svalero.pisosalquiler.api.Constants.BASE_URL;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

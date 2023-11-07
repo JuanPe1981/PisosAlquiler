@@ -17,9 +17,6 @@ public class User {
     private String firstName;
     private String addressUser;
     private String phoneNumber;
-    private Boolean agency;
-    private Boolean proprietary;
-    private Boolean renter;
     private List<Ad> ads;
     private List<Message> messages;
 }
