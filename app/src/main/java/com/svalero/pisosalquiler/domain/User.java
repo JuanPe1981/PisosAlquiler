@@ -6,9 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
 public class User {
     private long idUser;
     private String userName;
@@ -19,4 +19,5 @@ public class User {
     private String phoneNumber;
     private List<Ad> ads;
     private List<Message> messages;
+
 }

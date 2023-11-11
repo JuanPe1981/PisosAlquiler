@@ -16,6 +16,7 @@ public class House {
     private String cityHouse;
     private double latitudeHouse;
     private double longitudeHouse;
-    private List<Ad> ads;
-    private List<User> users;
+    private long userAgencyId;
+    private User userProprietaryId;
+    private User userRenterId;
 }

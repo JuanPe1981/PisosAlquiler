@@ -1,6 +1,7 @@
 package com.svalero.pisosalquiler.api;
 
 import com.svalero.pisosalquiler.domain.Ad;
+import com.svalero.pisosalquiler.domain.House;
 import com.svalero.pisosalquiler.domain.User;
 
 import retrofit2.Call;
@@ -15,6 +16,12 @@ import retrofit2.http.Query;
 
 public interface TodoApiInterface {
 
+    @GET("user/login")
+    Call<User> getLogin(@Query("userName") String userName, @Query("password") String password);
+
+    @GET("house")
+    Call<List<House>> getHouses();
+
     @GET("ad")
     Call<List<Ad>> getAds();
 
@@ -27,6 +34,6 @@ public interface TodoApiInterface {
     @DELETE("ad/{adId}")
     Call<Void> deleteAd (@Path("adId") long adId);
 
-    @GET("user/login")
-    Call<User> getLogin(@Query("userName") String userName, @Query("password") String password);
+
+
 }

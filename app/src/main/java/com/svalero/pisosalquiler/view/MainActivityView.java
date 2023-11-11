@@ -44,7 +44,6 @@ public class MainActivityView extends AppCompatActivity implements MainActivityC
         } else {
             Intent intent = new Intent(MainActivityView.this, MenuActivityView.class);
             intent.putExtra("user_name", user.getUserName());
-            intent.putExtra("id", user.getIdUser());
             startActivity(intent);
         }
     }

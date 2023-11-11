@@ -1,0 +1,82 @@
+package com.svalero.pisosalquiler.adapter;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.svalero.pisosalquiler.R;
+import com.svalero.pisosalquiler.contract.MenuAdapterContract;
+import com.svalero.pisosalquiler.domain.House;
+import com.svalero.pisosalquiler.presenter.MenuAdapterPresenter;
+
+import java.util.List;
+
+public class MenuAdapterView extends RecyclerView.Adapter<MenuAdapterView.MenuHolder> implements MenuAdapterContract.View {
+
+    private Context context;
+    private List<House> housesList;
+    private View snackBarView;
+    private MenuAdapterPresenter presenter;
+
+    public MenuAdapterView(Context context, List<House> dataList) {
+        this.context = context;
+        this.housesList = dataList;
+        presenter = new MenuAdapterPresenter(this);
+    }
+
+    public Context getContext() {
+        return context;
+    }
+
+    @Override
+    public MenuHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.house_item, parent, false);
+        return new MenuHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(MenuHolder holder, int position) {
+        holder.addressHouse.setText(housesList.get(position).getAddressHouse());
+        holder.idHouse.setText(Long.toString(housesList.get(position).getIdHouse()));
+    }
+
+    @Override
+    public int getItemCount() {
+        return housesList.size();
+    }
+
+//    @Override
+//    public void showMessage(String message) {
+//        Snackbar.make(snackBarView, message,
+//                BaseTransientBottomBar.LENGTH_LONG).show();
+//    }
+
+//    @Override
+//    public void showError(String errorMessage) {
+//        Snackbar.make(snackBarView, errorMessage,
+//                BaseTransientBottomBar.LENGTH_LONG).show();
+//    }
+
+    public class MenuHolder extends RecyclerView.ViewHolder {
+
+        public TextView titleHouse;
+        public TextView addressHouse;
+        public TextView idHouse;
+        public View parentView;
+        public MenuHolder(View view) {
+            super(view);
+            parentView = view;
+            snackBarView = parentView;
+
+            addressHouse = view.findViewById(R.id.tvAddress);
+            idHouse = view.findViewById(R.id.tvIdHouse);
+        }
+    }
+
+    }
+
