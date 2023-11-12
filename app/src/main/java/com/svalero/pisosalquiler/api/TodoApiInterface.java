@@ -22,6 +22,9 @@ public interface TodoApiInterface {
     @GET("house")
     Call<List<House>> getHouses();
 
+    @GET("house/{idHouse}")
+    Call<House> getHouse(@Path("idHouse") String idHouse);
+
     @GET("ad")
     Call<List<Ad>> getAds();
 

@@ -16,7 +16,12 @@ public class House {
     private String cityHouse;
     private double latitudeHouse;
     private double longitudeHouse;
-    private long userAgencyId;
+    private User userAgencyId;
     private User userProprietaryId;
     private User userRenterId;
+
+    public long getIdHouse() {
+        return idHouse;
+    }
+
 }

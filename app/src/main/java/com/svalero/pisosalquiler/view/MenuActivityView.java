@@ -25,10 +25,6 @@ public class MenuActivityView extends AppCompatActivity implements MenuActivityC
 
     private String userName;
     private TextView tvHouses;
-
-    private Button btDetailHouse;
-
-    private Button btAdsHouse;
     private List<House> housesList;
     private MenuAdapterView adapter;
     private MenuActivityPresenter presenter;

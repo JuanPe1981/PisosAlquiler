@@ -1,17 +1,21 @@
 package com.svalero.pisosalquiler.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Index;
 
 import com.svalero.pisosalquiler.R;
 import com.svalero.pisosalquiler.contract.MenuAdapterContract;
 import com.svalero.pisosalquiler.domain.House;
 import com.svalero.pisosalquiler.presenter.MenuAdapterPresenter;
+import com.svalero.pisosalquiler.view.DetailHouseView;
 
 import java.util.List;
 
@@ -21,6 +25,7 @@ public class MenuAdapterView extends RecyclerView.Adapter<MenuAdapterView.MenuHo
     private List<House> housesList;
     private View snackBarView;
     private MenuAdapterPresenter presenter;
+
 
     public MenuAdapterView(Context context, List<House> dataList) {
         this.context = context;
@@ -64,10 +69,13 @@ public class MenuAdapterView extends RecyclerView.Adapter<MenuAdapterView.MenuHo
 
     public class MenuHolder extends RecyclerView.ViewHolder {
 
-        public TextView titleHouse;
         public TextView addressHouse;
         public TextView idHouse;
         public View parentView;
+
+        private Button detailHouse;
+
+        private Button adsHouse;
         public MenuHolder(View view) {
             super(view);
             parentView = view;
@@ -75,8 +83,19 @@ public class MenuAdapterView extends RecyclerView.Adapter<MenuAdapterView.MenuHo
 
             addressHouse = view.findViewById(R.id.tvAddress);
             idHouse = view.findViewById(R.id.tvIdHouse);
+            detailHouse = view.findViewById(R.id.btDetailHouse);
+            adsHouse = view.findViewById(R.id.btAdsHouse);
+
+            detailHouse.setOnClickListener(v -> lookDetailsHouse(getAdapterPosition()));
         }
     }
 
+    private void lookDetailsHouse(int position) {
+        House house = housesList.get(position);
+
+        Intent intent = new Intent(context, DetailHouseView.class);
+        intent.putExtra("idHouse", Long.toString(house.getIdHouse()));
+        context.startActivity(intent);
     }
+}
 
