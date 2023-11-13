@@ -15,7 +15,9 @@ import android.widget.Toast;
 import com.svalero.pisosalquiler.R;
 import com.svalero.pisosalquiler.adapter.MenuAdapterView;
 import com.svalero.pisosalquiler.contract.MenuActivityContract;
+import com.svalero.pisosalquiler.domain.Dto.HouseDto;
 import com.svalero.pisosalquiler.domain.House;
+import com.svalero.pisosalquiler.domain.User;
 import com.svalero.pisosalquiler.presenter.MenuActivityPresenter;
 
 import java.util.ArrayList;
@@ -23,9 +25,9 @@ import java.util.List;
 
 public class MenuActivityView extends AppCompatActivity implements MenuActivityContract.View {
 
-    private String userName;
-    private TextView tvHouses;
-    private List<House> housesList;
+    private User user;
+    private Bundle bundle;
+    private List<HouseDto> housesList;
     private MenuAdapterView adapter;
     private MenuActivityPresenter presenter;
 
@@ -36,14 +38,15 @@ public class MenuActivityView extends AppCompatActivity implements MenuActivityC
 
         presenter = new MenuActivityPresenter(this);
 
-        initializeMenuActivityView();
-
         Intent intent = getIntent();
-        userName = intent.getStringExtra("user_name");
+        bundle = getIntent().getExtras();
+        user = (User)bundle.getSerializable("user");
+        //userName = intent.getStringExtra("user_name");
 
+        initializeMenuActivityView(user);
     }
 
-    private void initializeMenuActivityView() {
+    private void initializeMenuActivityView(User user) {
         housesList = new ArrayList<>();
 
         RecyclerView recyclerView = findViewById(R.id.House_list);
@@ -57,14 +60,14 @@ public class MenuActivityView extends AppCompatActivity implements MenuActivityC
     @Override
     protected void onResume() {
         super.onResume();
-        presenter.loadAllHouses();
+        presenter.loadAllHouses(user);
     }
 
 
     @Override
-    public void showHouses(List<House> houses) {
+    public void showHouses(List<HouseDto> housesDto) {
         housesList.clear();
-        housesList.addAll(houses);
+        housesList.addAll(housesDto);
         adapter.notifyDataSetChanged();
     }
 

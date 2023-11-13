@@ -1,30 +1,24 @@
-package com.svalero.pisosalquiler.domain;
+package com.svalero.pisosalquiler.domain.Dto;
 
 import java.io.Serializable;
-import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-public class House implements Serializable {
+public class HouseDto implements Serializable {
+
     private long idHouse;
     private String addressHouse;
     private int postalCodeHouse;
     private String cityHouse;
     private double latitudeHouse;
     private double longitudeHouse;
-    private User userAgencyId;
-    private User userProprietaryId;
-    private User userRenterId;
-
-    private List<Ad> ads;
-
-    public long getIdHouse() {
-        return idHouse;
-    }
+    private long userAgencyId;
+    private long userProprietaryId;
+    private long userRenterId;
 
 }

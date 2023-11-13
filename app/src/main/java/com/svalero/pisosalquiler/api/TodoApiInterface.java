@@ -1,6 +1,8 @@
 package com.svalero.pisosalquiler.api;
 
 import com.svalero.pisosalquiler.domain.Ad;
+import com.svalero.pisosalquiler.domain.Dto.AdDto;
+import com.svalero.pisosalquiler.domain.Dto.HouseDto;
 import com.svalero.pisosalquiler.domain.House;
 import com.svalero.pisosalquiler.domain.User;
 
@@ -22,21 +24,29 @@ public interface TodoApiInterface {
     @GET("house")
     Call<List<House>> getHouses();
 
+    @GET("housesDto")
+    Call<List<HouseDto>> getHousesDto();
+
     @GET("house/{idHouse}")
     Call<House> getHouse(@Path("idHouse") String idHouse);
 
     @GET("ad")
     Call<List<Ad>> getAds();
 
+    @GET("adsDto")
+    Call<List<AdDto>> getAdsDto();
+
     @GET("ad/{adId}")
     Call<Ad> getAd(@Path("adId") long adId);
+
+    @GET("ad/house/{house}")
+    Call<List<Ad>> getAllAdsHouse(@Path("house") House house);
 
     @POST("ad")
     Call<Ad> addAd(@Body Ad ad);
 
     @DELETE("ad/{adId}")
     Call<Void> deleteAd (@Path("adId") long adId);
-
 
 
 }

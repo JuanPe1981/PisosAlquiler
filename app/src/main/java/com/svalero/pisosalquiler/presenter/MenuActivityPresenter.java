@@ -1,7 +1,9 @@
 package com.svalero.pisosalquiler.presenter;
 
 import com.svalero.pisosalquiler.contract.MenuActivityContract;
+import com.svalero.pisosalquiler.domain.Dto.HouseDto;
 import com.svalero.pisosalquiler.domain.House;
+import com.svalero.pisosalquiler.domain.User;
 import com.svalero.pisosalquiler.model.MenuActivityModel;
 import com.svalero.pisosalquiler.view.MenuActivityView;
 
@@ -19,13 +21,13 @@ public class MenuActivityPresenter implements MenuActivityContract.Presenter,
     }
 
     @Override
-    public void loadAllHouses() {
-        model.getAll(this);
+    public void loadAllHouses(User user) {
+        model.getAll(this, user);
     }
 
     @Override
-    public void onLoadHousesSuccess(List<House> houses) {
-        view.showHouses(houses);
+    public void onLoadHousesSuccess(List<HouseDto> housesDto) {
+        view.showHouses(housesDto);
     }
 
     @Override

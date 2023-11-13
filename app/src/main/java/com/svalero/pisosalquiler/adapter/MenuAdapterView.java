@@ -9,28 +9,29 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.room.Index;
 
 import com.svalero.pisosalquiler.R;
 import com.svalero.pisosalquiler.contract.MenuAdapterContract;
+import com.svalero.pisosalquiler.domain.Dto.HouseDto;
 import com.svalero.pisosalquiler.domain.House;
 import com.svalero.pisosalquiler.presenter.MenuAdapterPresenter;
+import com.svalero.pisosalquiler.view.AdsActivityView;
 import com.svalero.pisosalquiler.view.DetailHouseView;
 
 import java.util.List;
 
-public class MenuAdapterView extends RecyclerView.Adapter<MenuAdapterView.MenuHolder> implements MenuAdapterContract.View {
+public class MenuAdapterView extends RecyclerView.Adapter<MenuAdapterView.MenuHolder> {
 
     private Context context;
-    private List<House> housesList;
+    private List<HouseDto> housesList;
     private View snackBarView;
-    private MenuAdapterPresenter presenter;
+    //private MenuAdapterPresenter presenter;
 
 
-    public MenuAdapterView(Context context, List<House> dataList) {
+    public MenuAdapterView(Context context, List<HouseDto> dataList) {
         this.context = context;
         this.housesList = dataList;
-        presenter = new MenuAdapterPresenter(this);
+        //presenter = new MenuAdapterPresenter(this);
     }
 
     public Context getContext() {
@@ -87,14 +88,24 @@ public class MenuAdapterView extends RecyclerView.Adapter<MenuAdapterView.MenuHo
             adsHouse = view.findViewById(R.id.btAdsHouse);
 
             detailHouse.setOnClickListener(v -> lookDetailsHouse(getAdapterPosition()));
+            adsHouse.setOnClickListener(v -> lookAdsHouse(getAdapterPosition()));
         }
     }
 
     private void lookDetailsHouse(int position) {
-        House house = housesList.get(position);
+        HouseDto houseDto = housesList.get(position);
 
         Intent intent = new Intent(context, DetailHouseView.class);
-        intent.putExtra("idHouse", Long.toString(house.getIdHouse()));
+        intent.putExtra("idHouse", Long.toString(houseDto.getIdHouse()));
+        context.startActivity(intent);
+    }
+
+    private void lookAdsHouse (int position) {
+        HouseDto houseDto = housesList.get(position);
+
+        Intent intent = new Intent(context, AdsActivityView.class);
+        intent.putExtra("idHouse", Long.toString(houseDto.getIdHouse()));
+        intent.putExtra("houseDto", houseDto);
         context.startActivity(intent);
     }
 }

@@ -1,6 +1,8 @@
 package com.svalero.pisosalquiler.contract;
 
+import com.svalero.pisosalquiler.domain.Dto.HouseDto;
 import com.svalero.pisosalquiler.domain.House;
+import com.svalero.pisosalquiler.domain.User;
 
 import java.util.List;
 
@@ -8,19 +10,19 @@ public interface MenuActivityContract {
 
     interface Model {
         interface OnLoadHousesListener {
-            void onLoadHousesSuccess(List<House> houses);
+            void onLoadHousesSuccess(List<HouseDto> housesDto);
             void onLoadHousesError(String message);
         }
-        void getAll(OnLoadHousesListener listener);
+        void getAll(OnLoadHousesListener listener, User user);
 
     }
 
     interface Presenter {
-        void loadAllHouses();
+        void loadAllHouses(User user);
     }
 
     interface View {
-        void showHouses(List<House> houses);
+        void showHouses(List<HouseDto> housesDto);
         void showMessage(String message);
     }
 }

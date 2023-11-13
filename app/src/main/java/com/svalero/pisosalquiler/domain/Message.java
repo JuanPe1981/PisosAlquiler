@@ -1,5 +1,6 @@
 package com.svalero.pisosalquiler.domain;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -10,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Message {
+public class Message implements Serializable {
     private long idMessage;
     private String message;
     private LocalDate dateMessage;
