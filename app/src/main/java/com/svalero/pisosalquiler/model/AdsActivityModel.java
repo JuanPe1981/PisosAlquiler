@@ -5,15 +5,12 @@ import android.content.Context;
 import com.svalero.pisosalquiler.api.TodoApi;
 import com.svalero.pisosalquiler.api.TodoApiInterface;
 import com.svalero.pisosalquiler.contract.AdsActivityContract;
-import com.svalero.pisosalquiler.domain.Ad;
 import com.svalero.pisosalquiler.domain.Dto.AdDto;
 import com.svalero.pisosalquiler.domain.Dto.HouseDto;
-import com.svalero.pisosalquiler.domain.House;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import kotlin.collections.ArrayDeque;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

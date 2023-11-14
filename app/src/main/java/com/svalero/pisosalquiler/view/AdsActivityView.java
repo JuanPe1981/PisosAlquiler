@@ -3,9 +3,8 @@ package com.svalero.pisosalquiler.view;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.room.Index;
 
-import android.content.Context;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -13,10 +12,8 @@ import android.widget.Toast;
 import com.svalero.pisosalquiler.R;
 import com.svalero.pisosalquiler.adapter.AdsAdapterView;
 import com.svalero.pisosalquiler.contract.AdsActivityContract;
-import com.svalero.pisosalquiler.domain.Ad;
 import com.svalero.pisosalquiler.domain.Dto.AdDto;
 import com.svalero.pisosalquiler.domain.Dto.HouseDto;
-import com.svalero.pisosalquiler.domain.House;
 import com.svalero.pisosalquiler.domain.User;
 import com.svalero.pisosalquiler.presenter.AdsActivityPresenter;
 

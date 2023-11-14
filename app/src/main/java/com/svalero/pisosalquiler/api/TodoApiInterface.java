@@ -3,6 +3,7 @@ package com.svalero.pisosalquiler.api;
 import com.svalero.pisosalquiler.domain.Ad;
 import com.svalero.pisosalquiler.domain.Dto.AdDto;
 import com.svalero.pisosalquiler.domain.Dto.HouseDto;
+import com.svalero.pisosalquiler.domain.Dto.MessageDto;
 import com.svalero.pisosalquiler.domain.House;
 import com.svalero.pisosalquiler.domain.User;
 
@@ -47,6 +48,8 @@ public interface TodoApiInterface {
 
     @DELETE("ad/{adId}")
     Call<Void> deleteAd (@Path("adId") long adId);
+    @GET("messagesDto")
+    Call<List<MessageDto>> getMessagesDto();
 
 
 }

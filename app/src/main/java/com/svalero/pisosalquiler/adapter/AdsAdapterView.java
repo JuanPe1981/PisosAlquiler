@@ -12,7 +12,6 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.svalero.pisosalquiler.R;
-import com.svalero.pisosalquiler.domain.Ad;
 import com.svalero.pisosalquiler.domain.Dto.AdDto;
 import com.svalero.pisosalquiler.domain.Dto.HouseDto;
 import com.svalero.pisosalquiler.domain.User;
@@ -95,6 +94,7 @@ public class AdsAdapterView extends RecyclerView.Adapter<AdsAdapterView.MenuHode
 
             Intent intent = new Intent(context, MessagesAdActivityView.class);
             intent.putExtra("idAd", Long.toString(adDto.getIdAd()));
+            intent.putExtra("AdDto", adDto);
             intent.putExtra("houseDto", houseDto);
             intent.putExtra("user", user);
             context.startActivity(intent);
