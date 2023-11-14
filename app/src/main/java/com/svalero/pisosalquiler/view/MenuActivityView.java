@@ -41,7 +41,6 @@ public class MenuActivityView extends AppCompatActivity implements MenuActivityC
         Intent intent = getIntent();
         bundle = getIntent().getExtras();
         user = (User)bundle.getSerializable("user");
-        //userName = intent.getStringExtra("user_name");
 
         initializeMenuActivityView(user);
     }
@@ -53,7 +52,7 @@ public class MenuActivityView extends AppCompatActivity implements MenuActivityC
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new MenuAdapterView(this, housesList);
+        adapter = new MenuAdapterView(this, housesList, user);
         recyclerView.setAdapter(adapter);
     }
 

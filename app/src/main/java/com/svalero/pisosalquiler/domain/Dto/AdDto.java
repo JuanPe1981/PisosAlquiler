@@ -3,6 +3,7 @@ package com.svalero.pisosalquiler.domain.Dto;
 import com.svalero.pisosalquiler.domain.House;
 import com.svalero.pisosalquiler.domain.User;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import lombok.AllArgsConstructor;
@@ -12,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class AdDto {
+public class AdDto implements Serializable {
 
     private long idAd;
     private String titleAd;

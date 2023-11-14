@@ -17,6 +17,7 @@ import com.svalero.pisosalquiler.domain.Ad;
 import com.svalero.pisosalquiler.domain.Dto.AdDto;
 import com.svalero.pisosalquiler.domain.Dto.HouseDto;
 import com.svalero.pisosalquiler.domain.House;
+import com.svalero.pisosalquiler.domain.User;
 import com.svalero.pisosalquiler.presenter.AdsActivityPresenter;
 
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ import java.util.List;
 
 public class AdsActivityView extends AppCompatActivity implements AdsActivityContract.View {
 
-    private String userName;
+    private User user;
 
     private String idHouse;
 
@@ -51,19 +52,20 @@ public class AdsActivityView extends AppCompatActivity implements AdsActivityCon
         idHouse = intent.getStringExtra("idHouse");
         bundle = getIntent().getExtras();
         houseDto = (HouseDto)bundle.getSerializable("houseDto");
+        user = (User)bundle.getSerializable("user");
 
 
-        initializeAdsActivityView(houseDto);
+        initializeAdsActivityView(houseDto, user);
     }
 
-    private void initializeAdsActivityView(HouseDto houseDto) {
+    private void initializeAdsActivityView(HouseDto houseDto, User user) {
         adsList = new ArrayList<>();
 
         RecyclerView recyclerView = findViewById(R.id.Ads_list);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new AdsAdapterView(this, adsList);
+        adapter = new AdsAdapterView(this, adsList, houseDto, user);
         recyclerView.setAdapter(adapter);
     }
 

@@ -43,7 +43,6 @@ public class MainActivityView extends AppCompatActivity implements MainActivityC
             Snackbar.make(((EditText) findViewById(R.id.etUser)), "Nombre o usuario incorrectos", BaseTransientBottomBar.LENGTH_LONG).show();
         } else {
             Intent intent = new Intent(MainActivityView.this, MenuActivityView.class);
-            //intent.putExtra("user_name", user.getUserName());
             intent.putExtra("user", user);
             startActivity(intent);
         }

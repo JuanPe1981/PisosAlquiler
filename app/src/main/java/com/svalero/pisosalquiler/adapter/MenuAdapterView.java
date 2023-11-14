@@ -14,6 +14,7 @@ import com.svalero.pisosalquiler.R;
 import com.svalero.pisosalquiler.contract.MenuAdapterContract;
 import com.svalero.pisosalquiler.domain.Dto.HouseDto;
 import com.svalero.pisosalquiler.domain.House;
+import com.svalero.pisosalquiler.domain.User;
 import com.svalero.pisosalquiler.presenter.MenuAdapterPresenter;
 import com.svalero.pisosalquiler.view.AdsActivityView;
 import com.svalero.pisosalquiler.view.DetailHouseView;
@@ -22,15 +23,17 @@ import java.util.List;
 
 public class MenuAdapterView extends RecyclerView.Adapter<MenuAdapterView.MenuHolder> {
 
+    private User user;
     private Context context;
     private List<HouseDto> housesList;
     private View snackBarView;
     //private MenuAdapterPresenter presenter;
 
 
-    public MenuAdapterView(Context context, List<HouseDto> dataList) {
+    public MenuAdapterView(Context context, List<HouseDto> dataList, User user) {
         this.context = context;
         this.housesList = dataList;
+        this.user = user;
         //presenter = new MenuAdapterPresenter(this);
     }
 
@@ -106,6 +109,7 @@ public class MenuAdapterView extends RecyclerView.Adapter<MenuAdapterView.MenuHo
         Intent intent = new Intent(context, AdsActivityView.class);
         intent.putExtra("idHouse", Long.toString(houseDto.getIdHouse()));
         intent.putExtra("houseDto", houseDto);
+        intent.putExtra("user", user);
         context.startActivity(intent);
     }
 }
