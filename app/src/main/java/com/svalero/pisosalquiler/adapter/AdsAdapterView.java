@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.svalero.pisosalquiler.R;
+import com.svalero.pisosalquiler.domain.Ad;
 import com.svalero.pisosalquiler.domain.Dto.AdDto;
 import com.svalero.pisosalquiler.domain.Dto.HouseDto;
 import com.svalero.pisosalquiler.domain.User;
@@ -26,12 +27,12 @@ public class AdsAdapterView extends RecyclerView.Adapter<AdsAdapterView.MenuHode
     private HouseDto houseDto;
     private Context context;
 
-    private List<AdDto> adsList;
+    private List<Ad> adsList;
 
     private View snackBarView;
 
 
-    public AdsAdapterView (Context context, List<AdDto> dataList, HouseDto houseDto, User user) {
+    public AdsAdapterView (Context context, List<Ad> dataList, HouseDto houseDto, User user) {
         this.context = context;
         this.adsList = dataList;
         this.houseDto = houseDto;
@@ -90,11 +91,11 @@ public class AdsAdapterView extends RecyclerView.Adapter<AdsAdapterView.MenuHode
         }
 
         private void lookMessagesAd (int position) {
-            AdDto adDto = adsList.get(position);
+            Ad ad = adsList.get(position);
 
             Intent intent = new Intent(context, MessagesAdActivityView.class);
-            intent.putExtra("idAd", Long.toString(adDto.getIdAd()));
-            intent.putExtra("AdDto", adDto);
+            intent.putExtra("idAd", Long.toString(ad.getIdAd()));
+            intent.putExtra("ad", ad);
             intent.putExtra("houseDto", houseDto);
             intent.putExtra("user", user);
             context.startActivity(intent);

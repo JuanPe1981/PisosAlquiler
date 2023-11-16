@@ -2,14 +2,18 @@ package com.svalero.pisosalquiler.api;
 
 import com.svalero.pisosalquiler.domain.Ad;
 import com.svalero.pisosalquiler.domain.Dto.AdDto;
+import com.svalero.pisosalquiler.domain.Dto.AdInDto;
 import com.svalero.pisosalquiler.domain.Dto.HouseDto;
 import com.svalero.pisosalquiler.domain.Dto.MessageDto;
+import com.svalero.pisosalquiler.domain.Dto.MessageInDto;
 import com.svalero.pisosalquiler.domain.House;
+import com.svalero.pisosalquiler.domain.Message;
 import com.svalero.pisosalquiler.domain.User;
 
 import retrofit2.Call;
 import java.util.List;
 
+import retrofit2.Response;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
@@ -44,12 +48,19 @@ public interface TodoApiInterface {
     Call<List<Ad>> getAllAdsHouse(@Path("house") House house);
 
     @POST("ad")
-    Call<Ad> addAd(@Body Ad ad);
+    Call<AdInDto> addAd(@Body AdInDto adInDto);
 
     @DELETE("ad/{adId}")
     Call<Void> deleteAd (@Path("adId") long adId);
     @GET("messagesDto")
     Call<List<MessageDto>> getMessagesDto();
+
+    @GET("messages")
+    Call<List<Message>> getMessages();
+
+    @POST("messageDto")
+    Call<MessageInDto> addMessage (@Body MessageInDto messageInDto);
+
 
 
 }

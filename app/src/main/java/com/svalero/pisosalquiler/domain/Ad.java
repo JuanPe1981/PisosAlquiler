@@ -14,8 +14,8 @@ public class Ad implements Serializable {
     private long idAd;
     private String titleAd;
     private String descriptionAd;
-    private LocalDate starDateAd;
-    private LocalDate endDateAd;
+    private String starDateAd;
+    private String endDateAd;
     private Boolean finishedAd;
     private User user;
     private House house;

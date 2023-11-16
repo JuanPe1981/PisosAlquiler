@@ -9,8 +9,10 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.svalero.pisosalquiler.R;
+import com.svalero.pisosalquiler.domain.Ad;
 import com.svalero.pisosalquiler.domain.Dto.AdDto;
 import com.svalero.pisosalquiler.domain.Dto.MessageDto;
+import com.svalero.pisosalquiler.domain.Message;
 import com.svalero.pisosalquiler.domain.User;
 import com.svalero.pisosalquiler.domain.Dto.HouseDto;
 
@@ -20,16 +22,16 @@ public class MessagesAdAdapterView extends RecyclerView.Adapter<MessagesAdAdapte
 
     private User user;
     private HouseDto houseDto;
-    private AdDto adDto;
+    private Ad ad;
     private Context context;
-    private List<MessageDto> messageDtoList;
+    private List<Message> messageList;
     private View snackBarView;
 
-    public MessagesAdAdapterView (Context context, List<MessageDto> dataList, HouseDto houseDto, AdDto adDto, User user) {
+    public MessagesAdAdapterView (Context context, List<Message> dataList, HouseDto houseDto, Ad ad, User user) {
         this.context = context;
-        this.messageDtoList = dataList;
+        this.messageList = dataList;
         this.houseDto = houseDto;
-        this.adDto = adDto;
+        this.ad = ad;
         this.user = user;
     }
 
@@ -46,19 +48,25 @@ public class MessagesAdAdapterView extends RecyclerView.Adapter<MessagesAdAdapte
 
     @Override
     public void onBindViewHolder(MenuHolder holder, int position) {
-        holder.userMessage.setText(Long.toString(messageDtoList.get(position).getIdUser()));
-        holder.messageText.setText(messageDtoList.get(position).getMessage());
+        holder.userMessage.setText(messageList.get(position).getUser().getUserName());
+        holder.messageText.setText(messageList.get(position).getMessage());
+        holder.dateMessage.setText(messageList.get(position).getDateMessage());
+        holder.timeMessage.setText(messageList.get(position).getTimeMessage());
     }
 
     @Override
     public int getItemCount() {
-        return messageDtoList.size();
+        return messageList.size();
     }
 
     public class MenuHolder extends RecyclerView.ViewHolder {
 
         public TextView userMessage;
         public TextView messageText;
+
+        public TextView dateMessage;
+
+        public TextView timeMessage;
         public View parentView;
 
         public MenuHolder( View view) {
@@ -68,6 +76,8 @@ public class MessagesAdAdapterView extends RecyclerView.Adapter<MessagesAdAdapte
 
             userMessage = view.findViewById(R.id.tvUserMessage);
             messageText = view.findViewById(R.id.tvMessageText);
+            dateMessage = view.findViewById(R.id.tvDateMessage);
+            timeMessage = view.findViewById(R.id.tvTimeMessage);
         }
     }
 }
