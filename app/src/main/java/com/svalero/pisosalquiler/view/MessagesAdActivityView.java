@@ -17,9 +17,7 @@ import com.svalero.pisosalquiler.R;
 import com.svalero.pisosalquiler.adapter.MessagesAdAdapterView;
 import com.svalero.pisosalquiler.contract.MessagesAdActivityContract;
 import com.svalero.pisosalquiler.domain.Ad;
-import com.svalero.pisosalquiler.domain.Dto.AdDto;
 import com.svalero.pisosalquiler.domain.Dto.HouseDto;
-import com.svalero.pisosalquiler.domain.Dto.MessageDto;
 import com.svalero.pisosalquiler.domain.Dto.MessageInDto;
 import com.svalero.pisosalquiler.domain.Message;
 import com.svalero.pisosalquiler.domain.User;
@@ -27,9 +25,7 @@ import com.svalero.pisosalquiler.presenter.MessagesAdActivityPresenter;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +35,6 @@ public class MessagesAdActivityView extends AppCompatActivity implements Message
     private User user;
     private HouseDto houseDto;
     private Ad ad;
-    private MessageInDto messageInDto;
     private List<Message> messagesList;
     private MessagesAdAdapterView adapter;
     private MessagesAdActivityPresenter presenter;
@@ -117,8 +112,6 @@ public class MessagesAdActivityView extends AppCompatActivity implements Message
 
         MessageInDto newMessage = new MessageInDto(message,dateMessage,timeMessage,user,ad);
 
-        //Message newMes = new Message(message,dateMessage,timeMessage,this.user,this.ad);
-
         presenter.registerMessage(newMessage);
     }
 
@@ -126,8 +119,7 @@ public class MessagesAdActivityView extends AppCompatActivity implements Message
     public void showMessageRegister (String message) {
         Snackbar.make(((EditText) findViewById(R.id.etMessageAd)),
                 message, BaseTransientBottomBar.LENGTH_LONG).show();
-        ((EditText) findViewById(R.id.etMessageAd
-        )).getText().clear();
+        ((EditText) findViewById(R.id.etMessageAd)).getText().clear();
         onResume();
     }
 

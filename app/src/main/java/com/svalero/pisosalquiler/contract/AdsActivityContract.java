@@ -1,10 +1,10 @@
 package com.svalero.pisosalquiler.contract;
 
+import android.widget.Switch;
+
 import com.svalero.pisosalquiler.domain.Ad;
-import com.svalero.pisosalquiler.domain.Dto.AdDto;
 import com.svalero.pisosalquiler.domain.Dto.AdInDto;
 import com.svalero.pisosalquiler.domain.Dto.HouseDto;
-import com.svalero.pisosalquiler.domain.House;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ public interface AdsActivityContract {
             void onLoadAdsError (String message);
         }
 
-        void getAllAdsHouse (OnLoadAdsListener listener, HouseDto houseDto);
+        void getAllAdsHouse (OnLoadAdsListener listener, HouseDto houseDto, Switch viewAll);
 
         interface OnRegisterAd {
             void onRegisterAdSuccess (AdInDto adInDto);
@@ -28,7 +28,7 @@ public interface AdsActivityContract {
 
     interface Presenter {
 
-        void loadAllAdsHouse (HouseDto houseDto);
+        void loadAllAdsHouse (HouseDto houseDto, Switch viewAll);
 
         void registerAd (AdInDto adInDto);
     }

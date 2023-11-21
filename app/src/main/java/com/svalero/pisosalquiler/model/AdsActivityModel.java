@@ -1,12 +1,12 @@
 package com.svalero.pisosalquiler.model;
 
 import android.content.Context;
+import android.widget.Switch;
 
 import com.svalero.pisosalquiler.api.TodoApi;
 import com.svalero.pisosalquiler.api.TodoApiInterface;
 import com.svalero.pisosalquiler.contract.AdsActivityContract;
 import com.svalero.pisosalquiler.domain.Ad;
-import com.svalero.pisosalquiler.domain.Dto.AdDto;
 import com.svalero.pisosalquiler.domain.Dto.AdInDto;
 import com.svalero.pisosalquiler.domain.Dto.HouseDto;
 
@@ -26,7 +26,7 @@ public class AdsActivityModel implements AdsActivityContract.Model {
     }
 
     @Override
-    public void getAllAdsHouse (OnLoadAdsListener listener, HouseDto houseDto) {
+    public void getAllAdsHouse (OnLoadAdsListener listener, HouseDto houseDto, Switch viewAll) {
         TodoApiInterface todoApi = TodoApi.buildInstance();
         Call<List<Ad>> callAds = todoApi.getAds();
         callAds.enqueue(new Callback<List<Ad>>() {
@@ -34,12 +34,22 @@ public class AdsActivityModel implements AdsActivityContract.Model {
             public void onResponse(Call<List<Ad>> call, Response<List<Ad>> response) {
                 List<Ad> adsHouse = new ArrayList<>();
                 List<Ad> ads = response.body();
-                for (Ad ad : ads) {
-                    if(ad.getHouse().getIdHouse() == houseDto.getIdHouse()) {
-                        adsHouse.add(ad);
+                if (viewAll.isChecked() == false) {
+                    for (Ad ad : ads) {
+                        if(ad.getHouse().getIdHouse() == houseDto.getIdHouse() && ad.getFinishedAd().equals(false)) {
+                            adsHouse.add(ad);
+                        }
                     }
+                    listener.onLoadAdsSuccess(adsHouse);
+                } else if (viewAll.isChecked() == true) {
+                    for (Ad ad : ads) {
+                        if(ad.getHouse().getIdHouse() == houseDto.getIdHouse()) {
+                            adsHouse.add(ad);
+                        }
+                    }
+                    listener.onLoadAdsSuccess(adsHouse);
                 }
-                listener.onLoadAdsSuccess(adsHouse);
+
             }
             @Override
             public void onFailure(Call<List<Ad>> call, Throwable t) {

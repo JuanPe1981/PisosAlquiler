@@ -1,15 +1,13 @@
 package com.svalero.pisosalquiler.presenter;
 
+import android.widget.Switch;
+
 import com.svalero.pisosalquiler.contract.AdsActivityContract;
 import com.svalero.pisosalquiler.domain.Ad;
-import com.svalero.pisosalquiler.domain.Dto.AdDto;
 import com.svalero.pisosalquiler.domain.Dto.AdInDto;
 import com.svalero.pisosalquiler.domain.Dto.HouseDto;
-import com.svalero.pisosalquiler.domain.House;
 import com.svalero.pisosalquiler.model.AdsActivityModel;
-import com.svalero.pisosalquiler.model.MenuActivityModel;
 import com.svalero.pisosalquiler.view.AdsActivityView;
-import com.svalero.pisosalquiler.view.MenuActivityView;
 
 import java.util.List;
 
@@ -26,8 +24,8 @@ public class AdsActivityPresenter implements AdsActivityContract.Presenter,
         this.view = view;
     }
     @Override
-    public void loadAllAdsHouse (HouseDto houseDto) {
-        model.getAllAdsHouse (this, houseDto);
+    public void loadAllAdsHouse (HouseDto houseDto, Switch viewAll) {
+        model.getAllAdsHouse (this, houseDto, viewAll);
     }
 
     @Override

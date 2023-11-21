@@ -11,16 +11,22 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
 import com.svalero.pisosalquiler.R;
+import com.svalero.pisosalquiler.contract.AdsAdapterContract;
 import com.svalero.pisosalquiler.domain.Ad;
-import com.svalero.pisosalquiler.domain.Dto.AdDto;
+import com.svalero.pisosalquiler.domain.Dto.AdPatchDto;
 import com.svalero.pisosalquiler.domain.Dto.HouseDto;
 import com.svalero.pisosalquiler.domain.User;
+import com.svalero.pisosalquiler.presenter.AdsAdapterPresenter;
 import com.svalero.pisosalquiler.view.MessagesAdActivityView;
 
+import java.time.LocalDate;
 import java.util.List;
 
-public class AdsAdapterView extends RecyclerView.Adapter<AdsAdapterView.MenuHoder>{
+public class AdsAdapterView extends RecyclerView.Adapter<AdsAdapterView.MenuHoder>
+    implements AdsAdapterContract.View {
 
     private User user;
 
@@ -31,12 +37,15 @@ public class AdsAdapterView extends RecyclerView.Adapter<AdsAdapterView.MenuHode
 
     private View snackBarView;
 
+    private AdsAdapterPresenter presenter;
+
 
     public AdsAdapterView (Context context, List<Ad> dataList, HouseDto houseDto, User user) {
         this.context = context;
         this.adsList = dataList;
         this.houseDto = houseDto;
         this.user = user;
+        presenter = new AdsAdapterPresenter(this);
     }
 
     public Context getContext() {
@@ -55,11 +64,24 @@ public class AdsAdapterView extends RecyclerView.Adapter<AdsAdapterView.MenuHode
     public void onBindViewHolder(MenuHoder holder, int position) {
         holder.titleAd.setText(adsList.get(position).getTitleAd());
         holder.descriptionAd.setText(adsList.get(position).getDescriptionAd());
+        holder.adFinished.setChecked(adsList.get(position).getFinishedAd());
     }
 
     @Override
     public int getItemCount() {
         return adsList.size();
+    }
+
+    @Override
+    public void showUpdateMessage(String messageSuccess) {
+        Snackbar.make(snackBarView, messageSuccess,
+                BaseTransientBottomBar.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void showUpdateError(String messageError) {
+        Snackbar.make(snackBarView, messageError,
+                BaseTransientBottomBar.LENGTH_LONG).show();
     }
 
 
@@ -87,6 +109,7 @@ public class AdsAdapterView extends RecyclerView.Adapter<AdsAdapterView.MenuHode
             adFinished = view.findViewById(R.id.swFinished);
 
             messagesAd.setOnClickListener(v -> lookMessagesAd(getAdapterPosition()));
+            adFinished.setOnClickListener(v -> setAdFinished(getAdapterPosition()));
 
         }
 
@@ -101,8 +124,24 @@ public class AdsAdapterView extends RecyclerView.Adapter<AdsAdapterView.MenuHode
             context.startActivity(intent);
         }
 
+        private void setAdFinished (int position) {
+            Ad ad = adsList.get(position);
 
+            AdPatchDto adPatchDto = new AdPatchDto();
+            if (ad.getFinishedAd().equals(false)) {
+                adPatchDto.setFinishedAd(true);
+                ad.setFinishedAd(true);
+                adPatchDto.setEndDateAd(LocalDate.now().toString());
+            } else {
+                adPatchDto.setFinishedAd(false);
+                ad.setFinishedAd(false);
+                adPatchDto.setEndDateAd("");
+            }
 
+            presenter.updateAdState(ad.getIdAd(), adPatchDto);
+
+            notifyItemChanged(position);
+        }
 
     }
 }

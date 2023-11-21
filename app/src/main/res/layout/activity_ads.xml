@@ -6,15 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".view.AdsActivityView">
 
-    <TextView
-        android:id="@+id/tvAds"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:text="Incidencias de Piso"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal"
+        android:textAlignment="textEnd"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/tvAds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Incidencias de Piso" />
+
+        <Switch
+            android:id="@+id/swViewAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1"
+            android:text="Ver todas las incidencias"
+            android:textAlignment="viewEnd"
+            tools:ignore="TouchTargetSizeCheck" />
+
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/Ads_list"
@@ -26,7 +44,7 @@
         app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvAds" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
 
     <LinearLayout
         android:id="@+id/linearLayout4"
@@ -47,7 +65,8 @@
                 android:layout_marginTop="8dp"
                 android:ems="10"
                 android:hint="Titulo"
-                android:inputType="text" />
+                android:inputType="text"
+                android:minHeight="48dp" />
 
             <Button
                 android:id="@+id/btAddAd"
