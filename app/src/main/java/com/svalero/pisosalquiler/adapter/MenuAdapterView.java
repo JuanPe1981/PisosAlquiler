@@ -27,14 +27,17 @@ public class MenuAdapterView extends RecyclerView.Adapter<MenuAdapterView.MenuHo
     private Context context;
     private List<HouseDto> housesList;
     private View snackBarView;
-    //private MenuAdapterPresenter presenter;
+
+    public void setFiltered (List<HouseDto> filteredList) {
+        this.housesList = filteredList;
+        notifyDataSetChanged();
+    }
 
 
     public MenuAdapterView(Context context, List<HouseDto> dataList, User user) {
         this.context = context;
         this.housesList = dataList;
         this.user = user;
-        //presenter = new MenuAdapterPresenter(this);
     }
 
     public Context getContext() {
@@ -58,18 +61,6 @@ public class MenuAdapterView extends RecyclerView.Adapter<MenuAdapterView.MenuHo
     public int getItemCount() {
         return housesList.size();
     }
-
-//    @Override
-//    public void showMessage(String message) {
-//        Snackbar.make(snackBarView, message,
-//                BaseTransientBottomBar.LENGTH_LONG).show();
-//    }
-
-//    @Override
-//    public void showError(String errorMessage) {
-//        Snackbar.make(snackBarView, errorMessage,
-//                BaseTransientBottomBar.LENGTH_LONG).show();
-//    }
 
     public class MenuHolder extends RecyclerView.ViewHolder {
 

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/action_search"
+        android:title="Buscar"
+        android:icon="@drawable/search_icon"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="always"
+        />
+
+
+    <item
+        android:id="@+id/btMore"
+        android:icon="@android:drawable/ic_input_add"
+        android:title="Más"
+        app:showAsAction="always">
+
+        <menu>
+
+            <item
+                android:id="@+id/changePassword"
+                android:icon="@android:drawable/ic_menu_info_details"
+                android:title="Cambiar contraseña" />
+
+            <item
+                android:id="@+id/closeSesion"
+                android:icon="@android:drawable/ic_lock_power_off"
+                android:title="Cerrar sesion" />
+        </menu>
+
+    </item>
+
+
+</menu>
