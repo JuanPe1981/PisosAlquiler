@@ -85,10 +85,13 @@ public class MenuActivityView extends AppCompatActivity implements MenuActivityC
         int id = item.getItemId();
 
         if(id == R.id.changePassword) {
-
+            Intent intent = new Intent(this, UserMenuView.class);
+            intent.putExtra("user", user);
+            startActivity(intent);
         } else if (id == R.id.closeSesion) {
-            Intent intent = new Intent(context, MainActivityView.class);
-            context.startActivity(intent);
+            Intent intent = new Intent(this, MainActivityView.class);
+            startActivity(intent);
+            finish();
         }
         return true;
     }
