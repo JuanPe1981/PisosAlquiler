@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.svalero.pisosalquiler.R;
@@ -55,6 +56,14 @@ public class MenuAdapterView extends RecyclerView.Adapter<MenuAdapterView.MenuHo
     public void onBindViewHolder(MenuHolder holder, int position) {
         holder.addressHouse.setText(housesList.get(position).getAddressHouse());
         holder.idHouse.setText(Long.toString(housesList.get(position).getIdHouse()));
+        holder.postalCode.setText(Integer.toString(housesList.get(position).getPostalCodeHouse()));
+        holder.city.setText(housesList.get(position).getCityHouse());
+        if (Long.toString(housesList.get(position).getUserRenterId()).isEmpty()) {
+            holder.renter.setText("Sin Alquilar");
+        } else {
+            holder.renter.setText("Alquilado");
+        }
+
     }
 
     @Override
@@ -66,6 +75,11 @@ public class MenuAdapterView extends RecyclerView.Adapter<MenuAdapterView.MenuHo
 
         public TextView addressHouse;
         public TextView idHouse;
+        public TextView postalCode;
+        public TextView city;
+
+        public TextView renter;
+
         public View parentView;
 
         private Button detailHouse;
@@ -77,8 +91,12 @@ public class MenuAdapterView extends RecyclerView.Adapter<MenuAdapterView.MenuHo
             snackBarView = parentView;
 
             addressHouse = view.findViewById(R.id.tvAddress);
-            idHouse = view.findViewById(R.id.tvIdHouse);
+            idHouse = view.findViewById(R.id.tvIdHouseView);
             detailHouse = view.findViewById(R.id.btDetailHouse);
+            postalCode = view.findViewById(R.id.tvPostalCode);
+            city = view.findViewById(R.id.tvCity);
+            renter = view.findViewById(R.id.tvRented);
+
             adsHouse = view.findViewById(R.id.btAdsHouse);
 
             detailHouse.setOnClickListener(v -> lookDetailsHouse(getAdapterPosition()));

@@ -10,12 +10,23 @@
         android:id="@+id/tvPaginaUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#F70F2359"
         android:text="Datos de Usuario"
         android:textAlignment="center"
+        android:textColor="@color/white"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toBottomOf="@+id/tvPaginaUsuario"
+        app:srcCompat="@drawable/fondo" />
 
     <LinearLayout
         android:id="@+id/linearLayout6"
@@ -33,31 +44,46 @@
             android:id="@+id/tvNameUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_marginLeft="40dp"
+            android:text="TextView"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvfirstname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_marginLeft="40dp"
+            android:text="TextView"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvAddressUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_marginLeft="40dp"
+            android:text="TextView"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvPhoneNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_marginLeft="40dp"
+            android:text="TextView"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvUserName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_marginLeft="40dp"
+            android:text="TextView"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -75,27 +101,46 @@
 
         <EditText
             android:id="@+id/etPasswordNew"
+            style="@style/Widget.AppCompat.AutoCompleteTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:background="#A49AB0BA"
+            android:backgroundTint="#D337427A"
             android:ems="10"
             android:hint="Insert New Password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
 
         <EditText
             android:id="@+id/etRepeatNewPassword"
+            style="@style/Widget.AppCompat.AutoCompleteTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="80dp"
+            android:background="#A49AB0BA"
+            android:backgroundTint="#D337427A"
             android:ems="10"
             android:hint="Repeat New Password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
 
         <Button
             android:id="@+id/btChangePassword"
+            style="@style/Widget.Material3.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="100dp"
+            android:backgroundTint="#8B1145DF"
             android:onClick="changePassword"
-            android:text="Change Password" />
+            android:text="Change Password"
+            android:textSize="16sp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
