@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="3dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardListIncidencias"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        app:cardBackgroundColor="#A11D2868"
+        app:cardCornerRadius="@dimen/mapbox_internalMinSpan24"
+        app:cardPreventCornerOverlap="false">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,10 +23,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp"
             android:background="#2DC633"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
 
             <TextView
                 android:id="@+id/tvUserMessage"
@@ -25,6 +35,7 @@
                 android:layout_marginLeft="4dp"
                 android:layout_marginRight="4dp"
                 android:background="#2DC633"
+                android:paddingLeft="20dp"
                 android:text="UserWrited"
                 android:textColor="#FDFCFC"
                 android:textSize="10sp"
@@ -46,6 +57,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:paddingRight="30dp"
                 android:text="Hora del mensaje"
                 android:textAlignment="textEnd"
                 android:textColor="#FDFCFC"
@@ -58,10 +70,12 @@
             android:id="@+id/tvMessageText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp"
-            android:layout_marginBottom="10dp"
             android:background="#A9E663"
+            android:paddingLeft="20dp"
+            android:paddingTop="4dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="4dp"
             android:text="Message" />
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</LinearLayout>

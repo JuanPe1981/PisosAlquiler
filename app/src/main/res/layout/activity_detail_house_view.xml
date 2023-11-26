@@ -7,16 +7,26 @@
     tools:context=".view.DetailHouseView">
 
     <TextView
-        android:id="@+id/tvHouseDetail"
+        android:id="@+id/tvPaginaUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:fontFamily="sans-serif-black"
-        android:text="Detalle de casa"
+        android:background="#F70F2359"
+        android:text="Datos de Usuario"
         android:textAlignment="center"
+        android:textColor="@color/white"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="10dp"
-        tools:layout_editor_absoluteY="10dp" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toBottomOf="@+id/tvPaginaUsuario"
+        app:srcCompat="@drawable/fondo" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -25,63 +35,125 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvHouseDetail">
+        app:layout_constraintTop_toBottomOf="@+id/tvPaginaUsuario">
 
-        <EditText
+        <TextView
             android:id="@+id/etIdHouseDetalle"
+            style="@style/Widget.AppCompat.AutoCompleteTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="#A49AB0BA"
+            android:backgroundTint="#D337427A"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Id House"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
 
-        <EditText
+        <TextView
             android:id="@+id/etAddressHouse"
+            style="@style/Widget.AppCompat.AutoCompleteTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:background="#A49AB0BA"
+            android:backgroundTint="#D337427A"
             android:ems="10"
             android:inputType="text"
             android:text="House Address"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
 
-        <EditText
+        <TextView
             android:id="@+id/etPostalCode"
+            style="@style/Widget.AppCompat.AutoCompleteTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:background="#A49AB0BA"
+            android:backgroundTint="#D337427A"
             android:ems="10"
             android:inputType="text"
             android:text="Postal Code"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
 
-        <EditText
+        <TextView
             android:id="@+id/etCityHouse"
+            style="@style/Widget.AppCompat.AutoCompleteTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:background="#A49AB0BA"
+            android:backgroundTint="#D337427A"
             android:ems="10"
             android:inputType="text"
             android:text="City House"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout8"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="5dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="125dp"
+            android:layout_height="130dp"
+            android:layout_marginLeft="5dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/piso1" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="125dp"
+            android:layout_height="140dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/dormitorio" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="125dp"
+            android:layout_height="140dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/jardin" />
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_margin="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
 
         <com.mapbox.maps.MapView
             android:id="@+id/SuperMap"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:mapbox_cameraTargetLat="41.6560"
             app:mapbox_cameraTargetLng="-0.8773"
             app:mapbox_cameraZoom="15.0" />

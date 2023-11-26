@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.widget.EditText;
+import android.widget.TextView;
 
 
 import com.google.android.material.snackbar.BaseTransientBottomBar;
@@ -87,23 +88,23 @@ public class DetailHouseView extends AppCompatActivity implements DetailHouseCon
 
     @Override
     public void showHouse (House house) {
-        EditText etIdHouse = findViewById(R.id.etIdHouseDetalle);
-        EditText etAddressHouse = findViewById(R.id.etAddressHouse);
-        EditText etPostalCode = findViewById(R.id.etPostalCode);
-        EditText etCityHouse = findViewById(R.id.etCityHouse);
+        TextView etIdHouse = findViewById(R.id.etIdHouseDetalle);
+        TextView etAddressHouse = findViewById(R.id.etAddressHouse);
+        TextView etPostalCode = findViewById(R.id.etPostalCode);
+        TextView etCityHouse = findViewById(R.id.etCityHouse);
 
         String id = String.valueOf(house.getIdHouse());
         etIdHouse.setText(id);
-        etAddressHouse.findViewById(R.id.etAddressHouse);
-        etPostalCode.findViewById(R.id.etPostalCode);
-        etCityHouse.findViewById(R.id.etCityHouse);
+        etAddressHouse.setText(house.getAddressHouse());
+        etPostalCode.setText(Integer.toString(house.getPostalCodeHouse()));
+        etCityHouse.setText(house.getCityHouse());
 
         addHouseToMap(house);
     }
 
     @Override
     public void showError(String errorMessage) {
-        Snackbar.make(((EditText) findViewById(R.id.etIdHouseDetalle)),
+        Snackbar.make(((TextView) findViewById(R.id.etIdHouseDetalle)),
                 errorMessage, BaseTransientBottomBar.LENGTH_LONG).show();
     }
 

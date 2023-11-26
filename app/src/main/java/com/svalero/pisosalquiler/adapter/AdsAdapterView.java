@@ -25,6 +25,8 @@ import com.svalero.pisosalquiler.view.MessagesAdActivityView;
 import java.time.LocalDate;
 import java.util.List;
 
+import lombok.var;
+
 public class AdsAdapterView extends RecyclerView.Adapter<AdsAdapterView.MenuHoder>
     implements AdsAdapterContract.View {
 
@@ -65,6 +67,8 @@ public class AdsAdapterView extends RecyclerView.Adapter<AdsAdapterView.MenuHode
         holder.titleAd.setText(adsList.get(position).getTitleAd());
         holder.descriptionAd.setText(adsList.get(position).getDescriptionAd());
         holder.adFinished.setChecked(adsList.get(position).getFinishedAd());
+        holder.startAd.setText(adsList.get(position).getStarDateAd());
+        holder.finisedAd.setText(adsList.get(position).getEndDateAd());
     }
 
     @Override
@@ -91,6 +95,10 @@ public class AdsAdapterView extends RecyclerView.Adapter<AdsAdapterView.MenuHode
 
         public TextView descriptionAd;
 
+        public TextView startAd;
+
+        public TextView finisedAd;
+
         public View parentView;
 
         private Button messagesAd;
@@ -107,6 +115,8 @@ public class AdsAdapterView extends RecyclerView.Adapter<AdsAdapterView.MenuHode
             descriptionAd = view.findViewById(R.id.tvDescriptionAd);
             messagesAd = view.findViewById(R.id.btMessagesAd);
             adFinished = view.findViewById(R.id.swFinished);
+            startAd = view.findViewById(R.id.tvDateStartAd);
+            finisedAd = view.findViewById(R.id.tvDateFinishedAd);
 
             messagesAd.setOnClickListener(v -> lookMessagesAd(getAdapterPosition()));
             adFinished.setOnClickListener(v -> setAdFinished(getAdapterPosition()));

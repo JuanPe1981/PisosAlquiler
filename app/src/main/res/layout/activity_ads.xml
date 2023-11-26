@@ -6,30 +6,40 @@
     android:layout_height="match_parent"
     tools:context=".view.AdsActivityView">
 
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/fondo"/>
+
     <LinearLayout
         android:id="@+id/linearLayout5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:textAlignment="textEnd"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        android:background="#F70F2359">
 
         <TextView
             android:id="@+id/tvAds"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:text="Incidencias de Piso" />
+            android:text="Incidencias de Piso"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
 
         <Switch
             android:id="@+id/swViewAll"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_weight="1"
-            android:text="Ver todas las incidencias"
-            android:textAlignment="viewEnd"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingRight="18dp"
+            android:text="Ver todas"
+            android:textAlignment="center"
+            android:textColor="@color/white"
             tools:ignore="TouchTargetSizeCheck" />
 
     </LinearLayout>
@@ -56,36 +66,55 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
             android:orientation="horizontal">
 
             <EditText
                 android:id="@+id/etTitleAd"
+                style="@style/Widget.AppCompat.AutoCompleteTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
                 android:layout_marginTop="8dp"
+                android:background="#A49AB0BA"
+                android:backgroundTint="#D337427A"
                 android:ems="10"
                 android:hint="Titulo"
                 android:inputType="text"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
 
             <Button
                 android:id="@+id/btAddAd"
+                style="@style/Widget.Material3.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="6dp"
-                android:layout_marginRight="6dp"
+                android:layout_marginRight="14dp"
+                android:backgroundTint="#8B1145DF"
                 android:onClick="registerAd"
                 android:text="Añadir Incidencia"
+                android:textSize="14dp"
                 app:icon="@android:drawable/stat_notify_error" />
         </LinearLayout>
 
         <EditText
             android:id="@+id/etDescriptionAd"
+            style="@style/Widget.AppCompat.AutoCompleteTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:layout_marginBottom="14dp"
+            android:background="#A49AB0BA"
+            android:backgroundTint="#D337427A"
             android:ems="10"
             android:gravity="start|top"
             android:hint="Descripción de incidencia"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:minHeight="60dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

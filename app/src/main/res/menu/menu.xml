@@ -5,11 +5,13 @@
 
     <item
         android:id="@+id/action_search"
-        android:title="Buscar"
         android:icon="@drawable/search_icon"
+        android:iconTint="@color/white"
+        android:editTextColor="@color/white"
+        android:textColorHint="@color/white"
+        android:title="Buscar"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
-        app:showAsAction="always"
-        />
+        app:showAsAction="always" />
 
 
     <item
@@ -22,12 +24,18 @@
 
             <item
                 android:id="@+id/changePassword"
+                android:background="#A49AB0BA"
+                android:backgroundTint="#D337427A"
                 android:icon="@android:drawable/ic_menu_info_details"
+                android:iconTint="@color/white"
                 android:title="Cambiar contraseña" />
 
             <item
                 android:id="@+id/closeSesion"
+                android:background="#A49AB0BA"
+                android:backgroundTint="#D337427A"
                 android:icon="@android:drawable/ic_lock_power_off"
+                android:iconTint="@color/white"
                 android:title="Cerrar sesion" />
         </menu>
 
