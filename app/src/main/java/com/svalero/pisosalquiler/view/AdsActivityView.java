@@ -100,15 +100,19 @@ public class AdsActivityView extends AppCompatActivity implements AdsActivityCon
         EditText etTitleAd = findViewById(R.id.etTitleAd);
         EditText etDescription = findViewById(R.id.etDescriptionAd);
 
-        String titleAd = etTitleAd.getText().toString();
-        String descriptionAd = etDescription.getText().toString();
-        String starDateAd = LocalDate.now().toString();
-        String endDateAd = "";
-        String finishedAd = Boolean.toString(false);
-        Long user = this.user.getIdUser();
-        Long house = this.houseDto.getIdHouse();
 
-        AdInDto newAdInDto = new AdInDto(titleAd, descriptionAd, starDateAd, endDateAd, finishedAd, user, house);
+        AdInDto newAdInDto = new AdInDto();
+
+        newAdInDto.setUser(this.user.getIdUser());
+        newAdInDto.setHouse(this.houseDto.getIdHouse());
+        String titleAd = etTitleAd.getText().toString();
+        newAdInDto.setTitleAd(titleAd);
+        String descriptionAd = etDescription.getText().toString();
+        newAdInDto.setDescriptionAd(descriptionAd);
+        newAdInDto.setStartDateAd(LocalDate.now().toString());
+        newAdInDto.setEndDateAd("");
+        newAdInDto.setFinishedAd("false");
+
 
         presenter.registerAd(newAdInDto);
     }

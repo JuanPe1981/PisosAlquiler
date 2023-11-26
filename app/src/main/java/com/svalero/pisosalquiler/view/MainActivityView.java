@@ -14,10 +14,13 @@ import com.svalero.pisosalquiler.R;
 import com.svalero.pisosalquiler.contract.MainActivityContract;
 import com.svalero.pisosalquiler.domain.User;
 import com.svalero.pisosalquiler.presenter.MainActivityPresenter;
+import com.svalero.pisosalquiler.presenter.MenuActivityPresenter;
 
 public class MainActivityView extends AppCompatActivity implements MainActivityContract.View {
 
     private MainActivityPresenter presenter;
+
+    private MenuActivityPresenter presenterHouse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,11 @@ public class MainActivityView extends AppCompatActivity implements MainActivityC
         if (user == null) {
             Snackbar.make(((EditText) findViewById(R.id.etUser)), "Nombre o usuario incorrectos", BaseTransientBottomBar.LENGTH_LONG).show();
         } else {
+
+            //presenterHouse.loadAllHouses(user);
+
+
+
             Intent intent = new Intent(MainActivityView.this, MenuActivityView.class);
             intent.putExtra("user", user);
             startActivity(intent);

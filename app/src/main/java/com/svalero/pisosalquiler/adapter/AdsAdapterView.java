@@ -67,7 +67,7 @@ public class AdsAdapterView extends RecyclerView.Adapter<AdsAdapterView.MenuHode
         holder.titleAd.setText(adsList.get(position).getTitleAd());
         holder.descriptionAd.setText(adsList.get(position).getDescriptionAd());
         holder.adFinished.setChecked(adsList.get(position).getFinishedAd());
-        holder.startAd.setText(adsList.get(position).getStarDateAd());
+        holder.startAd.setText(adsList.get(position).getStartDateAd());
         holder.finisedAd.setText(adsList.get(position).getEndDateAd());
     }
 
@@ -117,6 +117,7 @@ public class AdsAdapterView extends RecyclerView.Adapter<AdsAdapterView.MenuHode
             adFinished = view.findViewById(R.id.swFinished);
             startAd = view.findViewById(R.id.tvDateStartAd);
             finisedAd = view.findViewById(R.id.tvDateFinishedAd);
+            System.out.println(adsList);
 
             messagesAd.setOnClickListener(v -> lookMessagesAd(getAdapterPosition()));
             adFinished.setOnClickListener(v -> setAdFinished(getAdapterPosition()));

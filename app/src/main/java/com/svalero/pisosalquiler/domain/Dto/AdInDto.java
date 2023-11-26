@@ -1,7 +1,5 @@
 package com.svalero.pisosalquiler.domain.Dto;
 
-import java.time.LocalDate;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

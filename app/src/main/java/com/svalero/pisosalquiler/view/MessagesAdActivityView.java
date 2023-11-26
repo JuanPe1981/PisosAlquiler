@@ -64,7 +64,7 @@ public class MessagesAdActivityView extends AppCompatActivity implements Message
         adDescription = (TextView) findViewById(R.id.tvAdDescription);
         adDescription.setText(ad.getDescriptionAd());
         dataStart = (TextView) findViewById(R.id.tvDateStart);
-        dataStart.setText(ad.getStarDateAd());
+        dataStart.setText(ad.getStartDateAd());
         dataEnd = (TextView) findViewById(R.id.tvDateEnd);
         dataEnd.setText(ad.getEndDateAd());
 
