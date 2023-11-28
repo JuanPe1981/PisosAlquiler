@@ -13,9 +13,9 @@ public class MenuActivityPresenter implements MenuActivityContract.Presenter,
     MenuActivityContract.Model.OnLoadHousesListener{
 
     private MenuActivityModel model;
-    private MenuActivityView view;
+    private MenuActivityContract.View view;
 
-    public MenuActivityPresenter (MenuActivityView view) {
+    public MenuActivityPresenter (MenuActivityContract.View view) {
         this.model = new MenuActivityModel();
         this.view = view;
     }
