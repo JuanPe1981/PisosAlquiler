@@ -7,20 +7,28 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 import com.svalero.pisosalquiler.R;
 import com.svalero.pisosalquiler.contract.MainActivityContract;
+import com.svalero.pisosalquiler.contract.MenuActivityContract;
+import com.svalero.pisosalquiler.domain.Dto.HouseDto;
 import com.svalero.pisosalquiler.domain.User;
 import com.svalero.pisosalquiler.presenter.MainActivityPresenter;
 import com.svalero.pisosalquiler.presenter.MenuActivityPresenter;
 
-public class MainActivityView extends AppCompatActivity implements MainActivityContract.View {
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivityView extends AppCompatActivity implements MainActivityContract.View, MenuActivityContract.View {
 
     private MainActivityPresenter presenter;
 
     private MenuActivityPresenter presenterHouse;
+
+    private User registerUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +36,7 @@ public class MainActivityView extends AppCompatActivity implements MainActivityC
         setContentView(R.layout.activity_main);
 
         presenter = new MainActivityPresenter(this);
+        presenterHouse = new MenuActivityPresenter(this);
     }
 
     public void setBtLogin(View view){
@@ -45,14 +54,8 @@ public class MainActivityView extends AppCompatActivity implements MainActivityC
         if (user == null) {
             Snackbar.make(((EditText) findViewById(R.id.etUser)), "Nombre o usuario incorrectos", BaseTransientBottomBar.LENGTH_LONG).show();
         } else {
-
-            //presenterHouse.loadAllHouses(user);
-
-
-
-            Intent intent = new Intent(MainActivityView.this, MenuActivityView.class);
-            intent.putExtra("user", user);
-            startActivity(intent);
+            registerUser = user;
+            presenterHouse.loadAllHouses(user);
         }
     }
 
@@ -60,5 +63,29 @@ public class MainActivityView extends AppCompatActivity implements MainActivityC
     public void showError (String errorMessage) {
         Snackbar.make(((EditText) findViewById(R.id.etUser)),
                 errorMessage, BaseTransientBottomBar.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void showHouses(List<HouseDto> housesDto) {
+        List housesList = new ArrayList<HouseDto>();
+        housesList.clear();
+        housesList.addAll(housesDto);
+
+        if (housesList.size() > 1) {
+            Intent intent = new Intent(MainActivityView.this, MenuActivityView.class);
+            intent.putExtra("user", registerUser);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(MainActivityView.this, AdsActivityView.class);
+            intent.putExtra("idHouse", Long.toString(housesDto.get(0).getIdHouse()));
+            intent.putExtra("houseDto", housesDto.get(0));
+            intent.putExtra("user", registerUser);
+            startActivity(intent);
+        }
+    }
+
+    @Override
+    public void showMessage(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 }
