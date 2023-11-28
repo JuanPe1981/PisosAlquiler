@@ -31,8 +31,6 @@ public class MenuActivityView extends AppCompatActivity implements MenuActivityC
 
     private User user;
     private Bundle bundle;
-
-    private Context context;
     private List<HouseDto> housesList;
     private MenuAdapterView adapter;
     private MenuActivityPresenter presenter;
@@ -94,6 +92,10 @@ public class MenuActivityView extends AppCompatActivity implements MenuActivityC
             Intent intent = new Intent(this, MainActivityView.class);
             startActivity(intent);
             finish();
+        } else if (item.getItemId() == R.id.SuperMap) {
+            Intent intent = new Intent(this, MapsActivityView.class);
+            intent.putExtra("user", user);
+            startActivity(intent);
         }
         return true;
     }
