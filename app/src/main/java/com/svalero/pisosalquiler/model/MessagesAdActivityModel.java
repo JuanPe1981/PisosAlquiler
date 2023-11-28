@@ -20,11 +20,11 @@ import retrofit2.Response;
 
 public class MessagesAdActivityModel implements MessagesAdActivityContract.Model {
 
-    private Context context;
-
-    public MessagesAdActivityModel (Context context) {
-        this.context = context;
-    }
+//    private Context context;
+//
+//    public MessagesAdActivityModel (Context context) {
+//        this.context = context;
+//    }
 
     @Override
     public void getAllMessagesAd (OnLoadMessagesListener listener, Ad ad) {

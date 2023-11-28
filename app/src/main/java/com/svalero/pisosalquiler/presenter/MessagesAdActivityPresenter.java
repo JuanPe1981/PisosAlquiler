@@ -20,7 +20,7 @@ public class MessagesAdActivityPresenter implements MessagesAdActivityContract.P
     private MessagesAdActivityView view;
 
     public MessagesAdActivityPresenter (MessagesAdActivityView view) {
-        this.model = new MessagesAdActivityModel(view.getApplicationContext());
+        this.model = new MessagesAdActivityModel();
         this.view = view;
     }
 

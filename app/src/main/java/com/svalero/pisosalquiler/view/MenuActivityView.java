@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -54,6 +55,7 @@ public class MenuActivityView extends AppCompatActivity implements MenuActivityC
         Intent intent = getIntent();
         bundle = getIntent().getExtras();
         user = (User)bundle.getSerializable("user");
+
 
         initializeMenuActivityView(user);
     }

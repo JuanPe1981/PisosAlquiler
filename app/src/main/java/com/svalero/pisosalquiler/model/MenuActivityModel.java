@@ -18,11 +18,11 @@ import retrofit2.Response;
 
 public class MenuActivityModel implements MenuActivityContract.Model {
 
-    private Context context;
-
-    public MenuActivityModel(Context context) {
-        this.context = context;
-    }
+//    private Context context;
+//
+//    public MenuActivityModel(Context context) {
+//        this.context = context;
+//    }
 
     @Override
     public void getAll(OnLoadHousesListener listener, User user) {

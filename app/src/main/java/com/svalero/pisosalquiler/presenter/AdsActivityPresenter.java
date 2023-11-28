@@ -17,10 +17,10 @@ public class AdsActivityPresenter implements AdsActivityContract.Presenter,
 
     private AdsActivityModel model;
 
-    private AdsActivityView view;
+    private AdsActivityContract.View view;
 
-    public AdsActivityPresenter (AdsActivityView view) {
-        this.model = new AdsActivityModel(view.getApplicationContext());
+    public AdsActivityPresenter (AdsActivityContract.View view) {
+        this.model = new AdsActivityModel();
         this.view = view;
     }
     @Override

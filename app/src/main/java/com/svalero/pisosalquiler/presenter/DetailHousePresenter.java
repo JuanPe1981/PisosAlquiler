@@ -13,7 +13,7 @@ public class DetailHousePresenter implements DetailHouseContract.Presenter,
     private DetailHouseView view;
 
     public DetailHousePresenter (DetailHouseView view) {
-        this.model = new DetailHouseModel(view.getApplicationContext());
+        this.model = new DetailHouseModel();
         this.view = view;;
     }
 

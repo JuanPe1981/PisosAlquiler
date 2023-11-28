@@ -12,7 +12,7 @@ public class MainActivityPresenter implements MainActivityContract.Presenter,
     private MainActivityView view;
 
     public MainActivityPresenter (MainActivityView view) {
-        this.model = new MainActivityModel(view.getApplicationContext());
+        this.model = new MainActivityModel();
         this.view = view;
     }
 

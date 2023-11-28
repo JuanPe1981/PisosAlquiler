@@ -14,11 +14,11 @@ import retrofit2.Response;
 
 public class DetailHouseModel implements DetailHouseContract.Model {
 
-    private Context context;
-
-    public DetailHouseModel (Context context) {
-        this.context = context;
-    }
+//    private Context context;
+//
+//    public DetailHouseModel (Context context) {
+//        this.context = context;
+//    }
 
     @Override
     public void getHouse (String idHouse, OnGetDetailHouseListener listener) {

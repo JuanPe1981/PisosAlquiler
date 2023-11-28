@@ -16,7 +16,7 @@ public class MenuActivityPresenter implements MenuActivityContract.Presenter,
     private MenuActivityView view;
 
     public MenuActivityPresenter (MenuActivityView view) {
-        this.model = new MenuActivityModel(view.getApplicationContext());
+        this.model = new MenuActivityModel();
         this.view = view;
     }
 

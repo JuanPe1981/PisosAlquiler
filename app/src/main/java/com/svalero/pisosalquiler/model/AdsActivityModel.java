@@ -19,11 +19,11 @@ import retrofit2.Response;
 
 public class AdsActivityModel implements AdsActivityContract.Model {
 
-    private Context context;
-
-    public AdsActivityModel (Context context) {
-        this.context = context;
-    }
+//    private Context context;
+//
+//    public AdsActivityModel (Context context) {
+//        this.context = context;
+//    }
 
     @Override
     public void getAllAdsHouse (OnLoadAdsListener listener, HouseDto houseDto, Switch viewAll) {

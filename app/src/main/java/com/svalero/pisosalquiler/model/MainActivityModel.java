@@ -15,11 +15,11 @@ import retrofit2.Response;
 
 public class MainActivityModel implements MainActivityContract.Model {
 
-    public Context context;
-
-    public MainActivityModel(Context context) {
-        this.context = context;
-    }
+//    public Context context;
+//
+//    public MainActivityModel(Context context) {
+//        this.context = context;
+//    }
 
     @Override
     public void getLogin(String userName, String password, OnGetLoginListener listener) {
