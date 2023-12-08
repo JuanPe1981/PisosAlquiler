@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.widget.EditText;
 import android.widget.TextView;
 
 
@@ -19,8 +18,6 @@ import com.mapbox.maps.plugin.annotation.AnnotationPluginImplKt;
 import com.mapbox.maps.plugin.annotation.generated.PointAnnotationManager;
 import com.mapbox.maps.plugin.annotation.generated.PointAnnotationManagerKt;
 import com.mapbox.maps.plugin.annotation.generated.PointAnnotationOptions;
-import com.mapbox.maps.plugin.gestures.GesturesPlugin;
-import com.mapbox.maps.plugin.gestures.GesturesUtils;
 import com.svalero.pisosalquiler.R;
 import com.svalero.pisosalquiler.contract.DetailHouseContract;
 import com.svalero.pisosalquiler.domain.House;
@@ -103,9 +100,9 @@ public class DetailHouseView extends AppCompatActivity implements DetailHouseCon
     }
 
     @Override
-    public void showError(String errorMessage) {
+    public void showError() {
         Snackbar.make(((TextView) findViewById(R.id.etIdHouseDetalle)),
-                errorMessage, BaseTransientBottomBar.LENGTH_LONG).show();
+                R.string.error_call_API, BaseTransientBottomBar.LENGTH_LONG).show();
     }
 
 

@@ -1,13 +1,11 @@
 package com.svalero.pisosalquiler.model;
 
-import android.content.Context;
 
+import com.svalero.pisosalquiler.R;
 import com.svalero.pisosalquiler.api.TodoApi;
 import com.svalero.pisosalquiler.api.TodoApiInterface;
 import com.svalero.pisosalquiler.contract.MessagesAdActivityContract;
 import com.svalero.pisosalquiler.domain.Ad;
-import com.svalero.pisosalquiler.domain.Dto.AdDto;
-import com.svalero.pisosalquiler.domain.Dto.MessageDto;
 import com.svalero.pisosalquiler.domain.Dto.MessageInDto;
 import com.svalero.pisosalquiler.domain.Message;
 
@@ -19,12 +17,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MessagesAdActivityModel implements MessagesAdActivityContract.Model {
-
-//    private Context context;
-//
-//    public MessagesAdActivityModel (Context context) {
-//        this.context = context;
-//    }
 
     @Override
     public void getAllMessagesAd (OnLoadMessagesListener listener, Ad ad) {
@@ -45,8 +37,7 @@ public class MessagesAdActivityModel implements MessagesAdActivityContract.Model
 
             @Override
             public void onFailure(Call<List<Message>> call, Throwable t) {
-                String message = "Error called API";
-                listener.onLoadMessagesError(message);
+                listener.onLoadMessagesError();
             }
         });
     }
@@ -63,8 +54,7 @@ public class MessagesAdActivityModel implements MessagesAdActivityContract.Model
             }
             @Override
             public void onFailure(Call<MessageInDto> call, Throwable t) {
-                String error = "Error al llamar a la API";
-                listener.onRegisterMessageError(error);
+                listener.onRegisterMessageError();
             }
         });
     }

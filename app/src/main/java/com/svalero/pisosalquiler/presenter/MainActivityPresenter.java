@@ -27,8 +27,8 @@ public class MainActivityPresenter implements MainActivityContract.Presenter,
     }
 
     @Override
-    public void onGetLoginError(String message) {
-        view.showError ("Error");
+    public void onGetLoginError() {
+        view.showError();
     }
 
 }

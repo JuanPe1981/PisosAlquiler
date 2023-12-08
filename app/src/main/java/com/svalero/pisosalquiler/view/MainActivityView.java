@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,7 +54,12 @@ public class MainActivityView extends AppCompatActivity implements MainActivityC
     @Override
     public void showUserLogin (User user) {
         if (user == null) {
-            Snackbar.make(((EditText) findViewById(R.id.etUser)), "Nombre o usuario incorrectos", BaseTransientBottomBar.LENGTH_LONG).show();
+            Snackbar snackbar = Snackbar.make(((EditText)findViewById(R.id.etUser)), R.string.user_pass_error, BaseTransientBottomBar.LENGTH_LONG);
+            View view = snackbar.getView();
+            FrameLayout.LayoutParams params = (FrameLayout.LayoutParams)view.getLayoutParams();
+            params.gravity = Gravity.TOP;
+            view.setLayoutParams(params);
+            snackbar.show();
         } else {
             registerUser = user;
             presenterHouse.loadAllHouses(user);
@@ -60,9 +67,14 @@ public class MainActivityView extends AppCompatActivity implements MainActivityC
     }
 
     @Override
-    public void showError (String errorMessage) {
-        Snackbar.make(((EditText) findViewById(R.id.etUser)),
-                errorMessage, BaseTransientBottomBar.LENGTH_LONG).show();
+    public void showError () {
+        Snackbar snackbar = Snackbar.make(((EditText) findViewById(R.id.etUser)),
+                R.string.error_call_API, BaseTransientBottomBar.LENGTH_LONG);
+        View view = snackbar.getView();
+        FrameLayout.LayoutParams params = (FrameLayout.LayoutParams)view.getLayoutParams();
+        params.gravity = Gravity.TOP;
+        view.setLayoutParams(params);
+        snackbar.show();
     }
 
     @Override
@@ -75,6 +87,9 @@ public class MainActivityView extends AppCompatActivity implements MainActivityC
             Intent intent = new Intent(MainActivityView.this, MenuActivityView.class);
             intent.putExtra("user", registerUser);
             startActivity(intent);
+        } else if (housesList.size() == 0) {
+            Snackbar.make(((EditText) findViewById(R.id.etUser)),
+                    R.string.no_house_assigned, BaseTransientBottomBar.LENGTH_LONG).show();
         } else {
             Intent intent = new Intent(MainActivityView.this, AdsActivityView.class);
             intent.putExtra("idHouse", Long.toString(housesDto.get(0).getIdHouse()));
@@ -85,7 +100,7 @@ public class MainActivityView extends AppCompatActivity implements MainActivityC
     }
 
     @Override
-    public void showMessage(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+    public void showMessage() {
+        Toast.makeText(this, R.string.error_call_API, Toast.LENGTH_LONG).show();
     }
 }

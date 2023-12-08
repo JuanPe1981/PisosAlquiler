@@ -18,7 +18,12 @@ public class User implements Serializable {
     private String firstName;
     private String addressUser;
     private String phoneNumber;
+    private Boolean admin;
     private List<Ad> ads;
     private List<Message> messages;
+    private List<House> housesAgency;
+    private List<House> housesProprietary;
+    private List<House> housesRenter;
+
 
 }

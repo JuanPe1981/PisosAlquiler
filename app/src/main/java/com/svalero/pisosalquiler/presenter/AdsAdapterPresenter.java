@@ -1,5 +1,6 @@
 package com.svalero.pisosalquiler.presenter;
 
+import com.svalero.pisosalquiler.R;
 import com.svalero.pisosalquiler.adapter.AdsAdapterView;
 import com.svalero.pisosalquiler.contract.AdsAdapterContract;
 import com.svalero.pisosalquiler.domain.Dto.AdPatchDto;
@@ -24,11 +25,11 @@ public class AdsAdapterPresenter implements AdsAdapterContract.Presenter,
 
     @Override
     public void onUpdateAdSuccess(AdPatchDto adPatchDto) {
-        view.showUpdateMessage("The ad has been modify");
+        view.showUpdateMessage(String.valueOf(R.string.ad_modify_success));
     }
 
     @Override
-    public void onUpdateAdError(String errorMessage) {
-        view.showUpdateError("Error to update ad");
+    public void onUpdateAdError() {
+        view.showUpdateError();
     }
 }

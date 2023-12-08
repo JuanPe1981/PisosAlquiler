@@ -97,7 +97,7 @@ public class MapsActivityView extends AppCompatActivity implements MenuActivityC
     }
 
     @Override
-    public void showMessage(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+    public void showMessage() {
+        Toast.makeText(this, R.string.error_call_API, Toast.LENGTH_LONG).show();
     }
 }

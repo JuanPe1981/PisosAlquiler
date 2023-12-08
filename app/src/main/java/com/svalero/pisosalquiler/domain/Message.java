@@ -1,10 +1,6 @@
 package com.svalero.pisosalquiler.domain;
 
 import java.io.Serializable;
-import java.sql.Time;
-import java.time.LocalDate;
-import java.time.LocalTime;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,13 +16,13 @@ public class Message implements Serializable {
     private User user;
     private Ad ad;
 
-    public Message(String message, String dateMessage, String timeMessage, User user, Ad ad) {
-        this.message = message;
-        this.dateMessage = dateMessage;
-        this.timeMessage = timeMessage;
-        this.user = user;
-        this.ad = ad;
-    }
+//    public Message(String message, String dateMessage, String timeMessage, User user, Ad ad) {
+//        this.message = message;
+//        this.dateMessage = dateMessage;
+//        this.timeMessage = timeMessage;
+//        this.user = user;
+//        this.ad = ad;
+//    }
 }
 
 

@@ -14,8 +14,6 @@ public class AdInDto {
     private String startDateAd;
     private String endDateAd;
     private String finishedAd;
-
     private long user;
-
     private long house;
 }

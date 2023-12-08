@@ -7,7 +7,7 @@ public interface DetailHouseContract {
     interface Model {
         interface OnGetDetailHouseListener {
             void onGetDetailHouseSuccess(House house);
-            void onGetDetailHouseError(String message);
+            void onGetDetailHouseError();
         }
 
         void getHouse (String idHouse, OnGetDetailHouseListener listener);
@@ -20,6 +20,6 @@ public interface DetailHouseContract {
 
     interface View {
         void showHouse (House house);
-        void showError (String message);
+        void showError ();
     }
 }

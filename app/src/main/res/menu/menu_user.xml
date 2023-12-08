@@ -14,13 +14,6 @@
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="always" />
 
-    <item
-        android:id="@+id/SuperMap"
-        android:icon="@android:drawable/ic_dialog_map"
-        android:iconTint="@color/white"
-        android:title="MapView"
-        app:showAsAction="always" />
-
 
     <item
         android:id="@+id/btMore"

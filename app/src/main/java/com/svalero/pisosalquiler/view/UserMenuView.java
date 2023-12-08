@@ -64,11 +64,11 @@ public class UserMenuView extends AppCompatActivity implements UserMenuContract.
 
         if (passwordNew.isEmpty() && repeatNewPassword.isEmpty()) {
             Snackbar.make(((EditText) findViewById(R.id.etPasswordNew)),
-                    "Rellena los dos campos para cambiar la contraseña",
+                    R.string.two_params_change_pass,
                     BaseTransientBottomBar.LENGTH_LONG).show();
         } else if (!passwordNew.equals(repeatNewPassword)) {
             Snackbar.make(((EditText) findViewById(R.id.etPasswordNew)),
-                    "La nueva contraseña no es igual en ambos campos, Intentalo de nuevo",
+                    R.string.two_new_pass_different,
                     BaseTransientBottomBar.LENGTH_LONG).show();
         } else if (passwordNew.equals(repeatNewPassword)) {
             UserPatchDto newUserPassword = new UserPatchDto();
@@ -86,9 +86,9 @@ public class UserMenuView extends AppCompatActivity implements UserMenuContract.
     }
 
     @Override
-    public void showUpdateError(String messageError) {
+    public void showUpdateError() {
         Snackbar.make(((EditText) findViewById(R.id.etPasswordNew)),
-                messageError,
+                R.string.error_call_API,
                 BaseTransientBottomBar.LENGTH_LONG).show();
     }
 

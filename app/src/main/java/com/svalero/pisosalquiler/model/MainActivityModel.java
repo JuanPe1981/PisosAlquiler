@@ -1,8 +1,6 @@
 package com.svalero.pisosalquiler.model;
 
-import android.content.Context;
 import android.database.sqlite.SQLiteConstraintException;
-
 import com.svalero.pisosalquiler.domain.User;
 
 import com.svalero.pisosalquiler.api.TodoApi;
@@ -15,11 +13,6 @@ import retrofit2.Response;
 
 public class MainActivityModel implements MainActivityContract.Model {
 
-//    public Context context;
-//
-//    public MainActivityModel(Context context) {
-//        this.context = context;
-//    }
 
     @Override
     public void getLogin(String userName, String password, OnGetLoginListener listener) {
@@ -36,8 +29,7 @@ public class MainActivityModel implements MainActivityContract.Model {
                 @Override
                 public void onFailure(Call<User> call, Throwable t) {
                     t.printStackTrace();
-                    String message = "Error invocando a la operación";
-                    listener.onGetLoginError(message);
+                    listener.onGetLoginError();
                 }
             });
         } catch (SQLiteConstraintException sce) {

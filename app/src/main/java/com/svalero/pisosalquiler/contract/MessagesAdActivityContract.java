@@ -1,8 +1,6 @@
 package com.svalero.pisosalquiler.contract;
 
 import com.svalero.pisosalquiler.domain.Ad;
-import com.svalero.pisosalquiler.domain.Dto.AdDto;
-import com.svalero.pisosalquiler.domain.Dto.MessageDto;
 import com.svalero.pisosalquiler.domain.Dto.MessageInDto;
 import com.svalero.pisosalquiler.domain.Message;
 
@@ -14,13 +12,13 @@ public interface MessagesAdActivityContract {
 
         interface OnLoadMessagesListener {
             void onLoadMessagesSuccess (List<Message> messages);
-            void onLoadMessagesError (String message);
+            void onLoadMessagesError ();
         }
         void getAllMessagesAd (OnLoadMessagesListener listener, Ad ad);
 
         interface OnRegisterMessage {
             void onRegisterMessageSuccess (MessageInDto messageInDto);
-            void onRegisterMessageError (String error);
+            void onRegisterMessageError ();
         }
         void registerMessage(OnRegisterMessage listener, MessageInDto messageInDto);
     }
@@ -32,10 +30,10 @@ public interface MessagesAdActivityContract {
 
     interface View {
         void showMessages(List<Message> messages);
-        void showMessageError (String message);
+        void showMessageError ();
         void showMessageRegister (String message);
 
-        void showErrorAdd (String error);
+        void showErrorAdd ();
 
     }
 }

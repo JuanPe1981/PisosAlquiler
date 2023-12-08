@@ -1,8 +1,8 @@
 package com.svalero.pisosalquiler.presenter;
 
+import com.svalero.pisosalquiler.R;
 import com.svalero.pisosalquiler.contract.UserMenuContract;
 import com.svalero.pisosalquiler.domain.Dto.UserPatchDto;
-import com.svalero.pisosalquiler.domain.User;
 import com.svalero.pisosalquiler.model.UserMenuModel;
 import com.svalero.pisosalquiler.view.UserMenuView;
 
@@ -25,11 +25,11 @@ public class UserMenuPresenter implements UserMenuContract.Presenter,
 
     @Override
     public void onUpdatePasswordSuccess(UserPatchDto user) {
-        view.showUpdateMessage("The password has been modify");
+        view.showUpdateMessage(view.getString(R.string.password_modify_success));
     }
 
     @Override
-    public void onUpdatePasswordError(String errorMessage) {
-        view.showUpdateError(errorMessage);
+    public void onUpdatePasswordError() {
+        view.showUpdateError();
     }
 }

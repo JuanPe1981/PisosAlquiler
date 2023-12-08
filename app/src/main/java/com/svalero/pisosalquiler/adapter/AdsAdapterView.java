@@ -41,6 +41,11 @@ public class AdsAdapterView extends RecyclerView.Adapter<AdsAdapterView.MenuHode
 
     private AdsAdapterPresenter presenter;
 
+    public void setFiltered (List<Ad> filteredList) {
+        this.adsList = filteredList;
+        notifyDataSetChanged();
+    }
+
 
     public AdsAdapterView (Context context, List<Ad> dataList, HouseDto houseDto, User user) {
         this.context = context;
@@ -83,8 +88,8 @@ public class AdsAdapterView extends RecyclerView.Adapter<AdsAdapterView.MenuHode
     }
 
     @Override
-    public void showUpdateError(String messageError) {
-        Snackbar.make(snackBarView, messageError,
+    public void showUpdateError() {
+        Snackbar.make(snackBarView, R.string.error_call_API,
                 BaseTransientBottomBar.LENGTH_LONG).show();
     }
 
@@ -117,7 +122,6 @@ public class AdsAdapterView extends RecyclerView.Adapter<AdsAdapterView.MenuHode
             adFinished = view.findViewById(R.id.swFinished);
             startAd = view.findViewById(R.id.tvDateStartAd);
             finisedAd = view.findViewById(R.id.tvDateFinishedAd);
-            System.out.println(adsList);
 
             messagesAd.setOnClickListener(v -> lookMessagesAd(getAdapterPosition()));
             adFinished.setOnClickListener(v -> setAdFinished(getAdapterPosition()));

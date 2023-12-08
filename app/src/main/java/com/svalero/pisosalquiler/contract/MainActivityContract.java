@@ -7,7 +7,7 @@ public interface MainActivityContract {
     interface Model {
         interface OnGetLoginListener {
             void onGetLoginSuccess(User user);
-            void onGetLoginError(String messege);
+            void onGetLoginError();
         }
         void getLogin(String userName, String password, OnGetLoginListener listener);
 
@@ -15,7 +15,7 @@ public interface MainActivityContract {
 
     interface View {
         void showUserLogin (User user);
-        void showError (String errorMessage);
+        void showError ();
     }
 
     interface Presenter {

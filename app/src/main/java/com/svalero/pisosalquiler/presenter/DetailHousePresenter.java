@@ -28,7 +28,7 @@ public class DetailHousePresenter implements DetailHouseContract.Presenter,
     }
 
     @Override
-    public void onGetDetailHouseError (String message) {
-        view.showError(message);
+    public void onGetDetailHouseError () {
+        view.showError();
     }
 }

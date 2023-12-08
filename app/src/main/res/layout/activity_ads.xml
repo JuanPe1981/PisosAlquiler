@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -13,31 +14,40 @@
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/fondo"/>
 
+    <include
+        android:id="@+id/tbHouse"
+        layout="@layout/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
     <LinearLayout
         android:id="@+id/linearLayout5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#F70F2359"
         android:orientation="horizontal"
         android:textAlignment="textEnd"
-        tools:ignore="MissingConstraints"
-        android:background="#F70F2359">
+        app:layout_constraintTop_toBottomOf="@+id/tbHouse"
+        tools:ignore="MissingConstraints">
 
         <TextView
             android:id="@+id/tvAds"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:text="Incidencias de Piso"
+            android:text="@string/ads_house"
             android:textColor="@color/white"
             android:textSize="24sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <Switch
             android:id="@+id/swViewAll"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingRight="18dp"
-            android:text="Ver todas"
+            android:text="@string/view_all_ads_layout"
             android:textAlignment="center"
             android:textColor="@color/white"
             tools:ignore="TouchTargetSizeCheck" />
@@ -49,7 +59,6 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
         app:layout_constraintEnd_toEndOf="parent"
@@ -79,7 +88,7 @@
                 android:background="#A49AB0BA"
                 android:backgroundTint="#D337427A"
                 android:ems="10"
-                android:hint="Titulo"
+                android:hint="@string/title"
                 android:inputType="text"
                 android:minHeight="48dp"
                 android:textColor="@color/white"
@@ -94,7 +103,7 @@
                 android:layout_marginRight="14dp"
                 android:backgroundTint="#8B1145DF"
                 android:onClick="registerAd"
-                android:text="Añadir Incidencia"
+                android:text="@string/add_ad_layout"
                 android:textSize="14dp"
                 app:icon="@android:drawable/stat_notify_error" />
         </LinearLayout>
@@ -111,7 +120,7 @@
             android:backgroundTint="#D337427A"
             android:ems="10"
             android:gravity="start|top"
-            android:hint="Descripción de incidencia"
+            android:hint="@string/ad_description_layout"
             android:inputType="textMultiLine"
             android:minHeight="60dp"
             android:textColor="@color/white"

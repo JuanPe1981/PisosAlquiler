@@ -27,8 +27,7 @@ public class AdsAdapterModel implements AdsAdapterContract.Model {
                 }
                 @Override
                 public void onFailure(Call<AdPatchDto> call, Throwable t) {
-                    String message = "Error al llamar a la API";
-                    listener.onUpdateAdError(message);
+                    listener.onUpdateAdError();
                 }
             });
         } catch (SQLiteConstraintException sce) {

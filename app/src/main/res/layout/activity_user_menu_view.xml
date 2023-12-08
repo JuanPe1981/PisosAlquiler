@@ -6,27 +6,35 @@
     android:layout_height="match_parent"
     tools:context=".view.UserMenuView">
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="@+id/tbHouse"
+        app:srcCompat="@drawable/fondo" />
+
+    <include
+        android:id="@+id/tbHouse"
+        layout="@layout/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
     <TextView
         android:id="@+id/tvPaginaUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#F70F2359"
-        android:text="Datos de Usuario"
+        android:text="@string/user_data"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scaleType="centerCrop"
-        app:layout_constraintTop_toBottomOf="@+id/tvPaginaUsuario"
-        app:srcCompat="@drawable/fondo" />
+        app:layout_constraintTop_toBottomOf="@+id/tbHouse" />
 
     <LinearLayout
         android:id="@+id/linearLayout6"
@@ -45,7 +53,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
-            android:text="TextView"
             android:textColor="@color/white"
             android:textStyle="bold" />
 
@@ -54,7 +61,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
-            android:text="TextView"
             android:textColor="@color/white"
             android:textStyle="bold" />
 
@@ -63,7 +69,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
-            android:text="TextView"
             android:textColor="@color/white"
             android:textStyle="bold" />
 
@@ -72,7 +77,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
-            android:text="TextView"
             android:textColor="@color/white"
             android:textStyle="bold" />
 
@@ -81,7 +85,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
-            android:text="TextView"
             android:textColor="@color/white"
             android:textStyle="bold" />
 
@@ -108,7 +111,7 @@
             android:background="#A49AB0BA"
             android:backgroundTint="#D337427A"
             android:ems="10"
-            android:hint="Insert New Password"
+            android:hint="@string/insert_new_password"
             android:inputType="textPassword"
             android:minHeight="48dp"
             android:textAlignment="center"
@@ -124,7 +127,7 @@
             android:background="#A49AB0BA"
             android:backgroundTint="#D337427A"
             android:ems="10"
-            android:hint="Repeat New Password"
+            android:hint="@string/repeat_new_password"
             android:inputType="textPassword"
             android:minHeight="48dp"
             android:textAlignment="center"
@@ -139,7 +142,7 @@
             android:layout_marginLeft="100dp"
             android:backgroundTint="#8B1145DF"
             android:onClick="changePassword"
-            android:text="Change Password"
+            android:text="@string/change_password"
             android:textSize="16sp" />
     </LinearLayout>
 

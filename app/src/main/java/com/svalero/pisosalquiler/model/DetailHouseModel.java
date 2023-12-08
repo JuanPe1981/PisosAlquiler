@@ -1,6 +1,5 @@
 package com.svalero.pisosalquiler.model;
 
-import android.content.Context;
 import android.database.sqlite.SQLiteConstraintException;
 
 import com.svalero.pisosalquiler.api.TodoApi;
@@ -13,12 +12,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class DetailHouseModel implements DetailHouseContract.Model {
-
-//    private Context context;
-//
-//    public DetailHouseModel (Context context) {
-//        this.context = context;
-//    }
 
     @Override
     public void getHouse (String idHouse, OnGetDetailHouseListener listener) {
@@ -34,8 +27,7 @@ public class DetailHouseModel implements DetailHouseContract.Model {
                 @Override
                 public void onFailure(Call<House> call, Throwable t) {
                     t.printStackTrace();
-                    String message = "Error invocando a la operación";
-                    listener.onGetDetailHouseError(message);
+                    listener.onGetDetailHouseError();
                 }
             });
         } catch (SQLiteConstraintException sce) {

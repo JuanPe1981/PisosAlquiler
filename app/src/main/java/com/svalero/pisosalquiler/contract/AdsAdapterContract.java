@@ -7,7 +7,7 @@ public interface AdsAdapterContract {
     interface Model {
         interface OnUpdateAdState {
             void onUpdateAdSuccess (AdPatchDto adPatchDto);
-            void onUpdateAdError (String errorMessage);
+            void onUpdateAdError ();
             }
 
         void updateAdState (OnUpdateAdState listener, long idAd ,AdPatchDto adPatchDto);
@@ -20,6 +20,6 @@ public interface AdsAdapterContract {
 
     interface View {
         void showUpdateMessage (String messageSuccess);
-        void showUpdateError (String messageError);
+        void showUpdateError ();
     }
 }

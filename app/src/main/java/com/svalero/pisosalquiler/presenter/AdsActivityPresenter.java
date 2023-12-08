@@ -7,7 +7,6 @@ import com.svalero.pisosalquiler.domain.Ad;
 import com.svalero.pisosalquiler.domain.Dto.AdInDto;
 import com.svalero.pisosalquiler.domain.Dto.HouseDto;
 import com.svalero.pisosalquiler.model.AdsActivityModel;
-import com.svalero.pisosalquiler.view.AdsActivityView;
 
 import java.util.List;
 
@@ -34,8 +33,8 @@ public class AdsActivityPresenter implements AdsActivityContract.Presenter,
     }
 
     @Override
-    public void onLoadAdsError (String message) {
-        view.showMessage(message);
+    public void onLoadAdsError () {
+        view.showMessage();
     }
 
 
@@ -47,10 +46,10 @@ public class AdsActivityPresenter implements AdsActivityContract.Presenter,
     }
     @Override
     public void onRegisterAdSuccess(AdInDto adInDto) {
-        view.showMessageRegister("El mensaje se añadio correctamente");
+        view.showMessageRegister();
     }
     @Override
-    public void onRegisterError(String error) {
-        view.showErrorAdd("Se ha producido un error al mandar el mensaje");
+    public void onRegisterError() {
+        view.showErrorAdd();
     }
 }

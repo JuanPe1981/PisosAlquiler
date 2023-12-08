@@ -1,6 +1,5 @@
 package com.svalero.pisosalquiler.model;
 
-import android.content.Context;
 import android.widget.Switch;
 
 import com.svalero.pisosalquiler.api.TodoApi;
@@ -18,12 +17,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class AdsActivityModel implements AdsActivityContract.Model {
-
-//    private Context context;
-//
-//    public AdsActivityModel (Context context) {
-//        this.context = context;
-//    }
 
     @Override
     public void getAllAdsHouse (OnLoadAdsListener listener, HouseDto houseDto, Switch viewAll) {
@@ -53,8 +46,7 @@ public class AdsActivityModel implements AdsActivityContract.Model {
             }
             @Override
             public void onFailure(Call<List<Ad>> call, Throwable t) {
-                String message = "Error al llamar a la API";
-                listener.onLoadAdsError(message);
+                listener.onLoadAdsError();
             }
         });
     }
@@ -71,8 +63,7 @@ public class AdsActivityModel implements AdsActivityContract.Model {
             }
             @Override
             public void onFailure(Call<AdInDto> call, Throwable t) {
-                String error = "Error al llamar a la API";
-                listener.onRegisterError(error);
+                listener.onRegisterError();
             }
         });
     }

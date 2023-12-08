@@ -4,13 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -64,7 +61,7 @@ public class MenuActivityView extends AppCompatActivity implements MenuActivityC
 
         MenuItem menuItem = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) menuItem.getActionView();
-        searchView.setQueryHint("Type here to search");
+        searchView.setQueryHint(getString(R.string.text_type_search));
         searchView.clearFocus();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -130,8 +127,8 @@ public class MenuActivityView extends AppCompatActivity implements MenuActivityC
     }
 
     @Override
-    public void showMessage (String message) {
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+    public void showMessage () {
+        Toast.makeText(this, R.string.error_call_API, Toast.LENGTH_LONG).show();
     }
 
     private void filterList (String text) {
@@ -142,7 +139,7 @@ public class MenuActivityView extends AppCompatActivity implements MenuActivityC
             }
         }
         if (filteredList.isEmpty()) {
-            Toast.makeText(this, "No data found", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.no_data_found, Toast.LENGTH_SHORT).show();
         }else {
             adapter.setFiltered(filteredList);
         }

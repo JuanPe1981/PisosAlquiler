@@ -1,9 +1,8 @@
 package com.svalero.pisosalquiler.presenter;
 
+import com.svalero.pisosalquiler.R;
 import com.svalero.pisosalquiler.contract.MessagesAdActivityContract;
 import com.svalero.pisosalquiler.domain.Ad;
-import com.svalero.pisosalquiler.domain.Dto.AdDto;
-import com.svalero.pisosalquiler.domain.Dto.MessageDto;
 import com.svalero.pisosalquiler.domain.Dto.MessageInDto;
 import com.svalero.pisosalquiler.domain.Message;
 import com.svalero.pisosalquiler.model.MessagesAdActivityModel;
@@ -35,8 +34,8 @@ public class MessagesAdActivityPresenter implements MessagesAdActivityContract.P
     }
 
     @Override
-    public void onLoadMessagesError (String message) {
-        view.showMessageError(message);
+    public void onLoadMessagesError () {
+        view.showMessageError();
     }
 
     @Override
@@ -46,11 +45,11 @@ public class MessagesAdActivityPresenter implements MessagesAdActivityContract.P
 
     @Override
     public void onRegisterMessageSuccess(MessageInDto messageInDto) {
-        view.showMessageRegister("El mensaje se añadio correctamente");
+        view.showMessageRegister(view.getString(R.string.add_message_success));
     }
 
     @Override
-    public void onRegisterMessageError(String error) {
-        view.showErrorAdd("Se ha producido un error al mandar el mensaje");
+    public void onRegisterMessageError() {
+        view.showErrorAdd();
     }
 }

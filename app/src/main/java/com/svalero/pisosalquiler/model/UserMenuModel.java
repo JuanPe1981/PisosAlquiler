@@ -6,9 +6,6 @@ import com.svalero.pisosalquiler.api.TodoApi;
 import com.svalero.pisosalquiler.api.TodoApiInterface;
 import com.svalero.pisosalquiler.contract.UserMenuContract;
 import com.svalero.pisosalquiler.domain.Dto.UserPatchDto;
-import com.svalero.pisosalquiler.domain.User;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,8 +25,7 @@ public class UserMenuModel implements UserMenuContract.Model {
                 }
                 @Override
                 public void onFailure(Call<UserPatchDto> call, Throwable t) {
-                    String message = "Error al llamar a la API";
-                    listener.onUpdatePasswordError(message);
+                    listener.onUpdatePasswordError();
                 }
             });
         } catch (SQLiteConstraintException sce) {

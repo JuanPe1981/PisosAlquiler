@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="3dp">>
+    android:padding="3dp">
 
 
     <com.google.android.material.card.MaterialCardView
@@ -41,7 +41,7 @@
                 android:layout_marginLeft="14dp"
                 android:layout_marginRight="14dp"
                 android:paddingStart="8dp"
-                android:text="Titulo"
+                android:text="@string/title"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="16sp"
@@ -57,7 +57,7 @@
                 android:layout_marginRight="14dp"
                 android:layout_marginBottom="4dp"
                 android:paddingStart="8dp"
-                android:text="Descripción"
+                android:text="@string/ad_description"
                 android:textColor="@color/white"
                 android:textSize="12sp" />
 
@@ -73,7 +73,7 @@
                     android:id="@+id/tvDateStartAd"
                     android:layout_width="170dp"
                     android:layout_height="wrap_content"
-                    android:text="Fecha inicio"
+                    android:text="@string/start"
                     android:textAlignment="center"
                     android:textColor="@color/white"/>
 
@@ -81,7 +81,7 @@
                     android:id="@+id/tvDateFinishedAd"
                     android:layout_width="170dp"
                     android:layout_height="wrap_content"
-                    android:text="TextView"
+                    android:text="@string/end"
                     android:textAlignment="center"
                     android:textColor="@color/white" />
             </LinearLayout>
@@ -100,7 +100,7 @@
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="60dp"
                     android:layout_weight="1"
-                    android:text="Resuelto"
+                    android:text="@string/resolver"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textStyle="bold" />

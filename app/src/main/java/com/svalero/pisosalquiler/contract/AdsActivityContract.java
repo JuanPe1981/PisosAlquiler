@@ -13,14 +13,14 @@ public interface AdsActivityContract {
     interface Model {
         interface OnLoadAdsListener {
             void onLoadAdsSuccess (List<Ad> ads);
-            void onLoadAdsError (String message);
+            void onLoadAdsError ();
         }
 
         void getAllAdsHouse (OnLoadAdsListener listener, HouseDto houseDto, Switch viewAll);
 
         interface OnRegisterAd {
             void onRegisterAdSuccess (AdInDto adInDto);
-            void onRegisterError (String error);
+            void onRegisterError ();
         }
 
         void registerAd (OnRegisterAd listener, AdInDto adInDto);
@@ -36,9 +36,9 @@ public interface AdsActivityContract {
     interface View {
 
         void showAds(List<Ad> ads);
-        void showMessage(String message);
+        void showMessage();
 
-        void showMessageRegister (String message);
-        void showErrorAdd (String error);
+        void showMessageRegister ();
+        void showErrorAdd ();
     }
 }
