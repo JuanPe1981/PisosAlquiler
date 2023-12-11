@@ -139,7 +139,7 @@
             android:id="@+id/etMessageAd"
             style="@style/Widget.AppCompat.AutoCompleteTextView"
             android:layout_width="305dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:background="#A49AB0BA"
             android:backgroundTint="#D337427A"
